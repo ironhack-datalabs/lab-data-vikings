@@ -23,7 +23,6 @@ class Viking(Soldier):
         if self.health > 0: 
             return "{} has received {} points of damage".format(self.name, damage)
         else: 
-            self.health = 0
             return "{} has died in act of combat".format(self.name)
 
 # Saxon
@@ -36,17 +35,16 @@ class Saxon(Soldier):
         if self.health > 0: 
             return "A Saxon has received {} points of damage".format(damage)
         else: 
-            self.health = 0
             return "A Saxon has died in combat"
 
 # War
 class War: 
-    def __ini__(self): 
+    def __init__(self): 
         self.vikingArmy = []
         self.saxonArmy = []
 
-    def addVicking(self, vicking): 
-        self.vikingArmy.append(vicking)
+    def addViking(self, viking): 
+        self.vikingArmy.append(viking)
 
     def addSaxon(self, saxon): 
         self.saxonArmy.append(saxon)
@@ -62,7 +60,7 @@ class War:
     def saxonAttack(self): 
         vicking = self.vikingArmy[0]
         saxon = self.saxonArmy[0]
-        res = vicking.receiveDamage(vicking.strength)
+        res = vicking.receiveDamage(saxon.strength)
         if vicking.health <= 0: 
             self.vikingArmy.pop(0)
         return res

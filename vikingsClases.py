@@ -10,8 +10,8 @@ class Soldier:
         self.health -= damage
 
 # viking
-class Vicking(Soldier): 
-    def __init__(self, health, strenght, name): 
+class Viking(Soldier): 
+    def __init__(self, name, strenght, health): 
         Soldier.__init__(self, health, strenght)
         self.name = name
 
@@ -51,7 +51,7 @@ class War:
     def addSaxon(self, saxon): 
         self.saxonArmy.append(saxon)
 
-    def vikingAttack(): 
+    def vikingAttack(self): 
         vicking = self.vikingArmy[0]
         saxon = self.saxonArmy[0]
         res = saxon.receiveDamage(vicking.strength)
@@ -59,7 +59,7 @@ class War:
             self.saxonArmy.pop(0)
         return res
 
-    def saxonAttack(): 
+    def saxonAttack(self): 
         vicking = self.vikingArmy[0]
         saxon = self.saxonArmy[0]
         res = vicking.receiveDamage(vicking.strength)
@@ -67,7 +67,7 @@ class War:
             self.vikingArmy.pop(0)
         return res
 
-    def showStatus(): 
+    def showStatus(self): 
         if len(self.saxonArmy) <= 0: 
             return "Vikings have won the war of the century!"
         elif len(self.vikingArmy) <= 0: 

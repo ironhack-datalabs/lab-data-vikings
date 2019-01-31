@@ -17,7 +17,27 @@ You are free to use any of the code editors you have to open these files. Do not
 
 Modify the file ```vikingsClases.py``` so that all the tests are correct.
 
+## Submission
+
+- Upon completion, run the following commands. 
+
+```
+git checkout -b lab-data-vikings
+```
+- Modify ```vikingsClases.py``` and save your changes. 
+```
+git add .
+git commit -m "done"
+git push origin lab-data-vikings
+```
+
+- Navigate to your repo and [create a Pull Request](https://help.github.com/articles/creating-a-pull-request/)
+
+
+
 ## Tests
+
+Best way to know how our code is doing is to work with tests. To try the ```vikingsClases.py``` file step by step you can comment and uncomment lines of code of ```tests.py```. 
 
 To run the battery of tests you must enter the following command line through the terminal. 
 ```
@@ -67,11 +87,47 @@ FAILED (failures=1)
 
 ## Exercise
 
+
 ![](https://i.imgur.com/5TPElt8.jpg)
 
 
 --------------------------------------------------------------------------------
 
+**Write the code**
+
+Now we have to write the correct code in the ```vikingsClases.py``` file to make the test pass. The starter code you will find in the file is the following:
+
+```
+# Soldier
+class Soldier:
+
+# Viking
+class Viking:
+
+# Saxon
+class Saxon:
+
+# War
+class War:
+```
+
+In this case, the test says that _Soldier constructor function should receive 2 arguments (health & strength)_, so we have to write the correct code that passes this test. Let's make the `Soldier` constructor function receive two arguments:
+
+```
+# Soldier
+class Soldier:
+    def __init__(self, health, strength): 
+
+# Viking
+class Viking:
+
+# Saxon
+class Saxon:
+
+# War
+class War:
+
+```
 
 ### Soldier
 
@@ -250,9 +306,6 @@ Returns the current status of the `War` based on the size of the armies.
 
 * REQUIRED: ```vikingsClases.py``` modified with your solution to the challenge question.
 
-## Submission
-
-Upon completion, add your deliverables to git. Then commit git and push your branch to the remote.
 
 ## Resources
 

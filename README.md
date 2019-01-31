@@ -9,9 +9,11 @@ In this laboratory you will work with the concept of inheritance in Python.
 ### Getting Started
 
 You will find the following files in the folder of this laboratory: 
+
 * ```vikingsClases.py```
 * ```tests.py```
-You are free to use any of the code editors you have to open these files. Do not modify ```tests.py```. 
+
+You are free to use any of the code editors you have to open these files. 
 
 ### Challenge Question
 
@@ -19,7 +21,7 @@ Modify the file ```vikingsClases.py``` so that all the tests are correct.
 
 ## Submission
 
-- Upon completion, run the following commands. 
+- Upon completion, run the following commands from your ```master``` branch. 
 
 ```
 git checkout -b lab-data-vikings
@@ -37,7 +39,7 @@ git push origin lab-data-vikings
 
 ## Tests
 
-Best way to know how our code is doing is to work with tests. To try the ```vikingsClases.py``` file step by step you can comment and uncomment lines of code of ```tests.py```. 
+Best way to know how our code is doing is to work with tests. To test the ```vikingsClases.py``` file step by step you can comment and uncomment lines of code of ```tests.py```. 
 
 To run the battery of tests you must enter the following command line through the terminal. 
 ```
@@ -62,7 +64,7 @@ OK
 ```
 ### Failed Test
 
-When some test is incorrect you will receive the following message in the terminal. It means that you must keep making changes in the ```vikingsClases.py``` file.
+When any test is incorrect you will receive the following message in the terminal. It means that you must keep making changes in the ```vikingsClases.py``` file.
 ```
 $ > python3 tests.py -v
 
@@ -116,7 +118,8 @@ In this case, the test says that _Soldier constructor function should receive 2 
 ```
 # Soldier
 class Soldier:
-    def __init__(self, health, strength): 
+    def __init__(self, health, strength):
+        # add code here 
 
 # Viking
 class Viking:

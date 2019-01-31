@@ -60,13 +60,8 @@ class War:
     def saxonAttack(self): 
         viking = self.vikingArmy[0]
         saxon = self.saxonArmy[0]
-<<<<<<< HEAD
         res = vicking.receiveDamage(saxon.strength)
         if vicking.health <= 0: 
-=======
-        res = viking.receiveDamage(viking.strength)
-        if viking.health <= 0: 
->>>>>>> a92225abbcccc3ef566b47a19d5857883175f344
             self.vikingArmy.pop(0)
         return res
 

@@ -18,8 +18,8 @@ class Vicking(Soldier):
     def battleCry(self): 
         return "Odin Owns You All!"
         
-     def receiveDamage(self, damage): 
-        self.health -= damage
+    def receiveDamage(self, damage): 
+        super().receiveDamage(damage)
         if self.health > 0: 
             return "{} has received {} points of damage".format(self.name, damage)
         else: 
@@ -32,7 +32,7 @@ class Saxon(Soldier):
         Soldier.__init__(self, health, strenght)
 
     def receiveDamage(self, damage): 
-        self.health -= damage
+        super().receiveDamage(damage)
         if self.health > 0: 
             return "A Saxon has received {} points of damage".format(damage)
         else: 

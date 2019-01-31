@@ -41,7 +41,7 @@ class MyTest(unittest.TestCase):
     self.assertEqual(viking.receiveDamage(70), name + ' has received 70 points of damage')
     self.assertEqual(viking.receiveDamage(health), name + ' has died in act of combat')
     # viking battle cry should be a function
-    #self.assertEqual(viking.battleCry(), 'Odins Owns You All!')
+    self.assertEqual(viking.battleCry(), 'Odin Owns You All!')
 
   def testSaxon(self):
     health = 60

@@ -50,18 +50,23 @@ class War:
         self.saxonArmy.append(saxon)
 
     def vikingAttack(self): 
-        vicking = self.vikingArmy[0]
+        viking = self.vikingArmy[0]
         saxon = self.saxonArmy[0]
-        res = saxon.receiveDamage(vicking.strength)
+        res = saxon.receiveDamage(viking.strength)
         if saxon.health <= 0: 
             self.saxonArmy.pop(0)
         return res
 
     def saxonAttack(self): 
-        vicking = self.vikingArmy[0]
+        viking = self.vikingArmy[0]
         saxon = self.saxonArmy[0]
+<<<<<<< HEAD
         res = vicking.receiveDamage(saxon.strength)
         if vicking.health <= 0: 
+=======
+        res = viking.receiveDamage(viking.strength)
+        if viking.health <= 0: 
+>>>>>>> a92225abbcccc3ef566b47a19d5857883175f344
             self.vikingArmy.pop(0)
         return res
 
@@ -76,3 +81,4 @@ class War:
 
 if __name__ == '__main__':
     pass
+    v = Viking

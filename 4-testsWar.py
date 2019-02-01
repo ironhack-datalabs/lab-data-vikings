@@ -11,14 +11,14 @@ class TestWar(unittest.TestCase):
     def setUp(cls):
         def generateViking():
             cls.name = 'Harald'
-            cls.strenght = 150
+            cls.strength = 150
             cls.health = 300
             return Viking(cls.name, cls.health, cls.strength)
 
         def generateSaxon():
             cls.health = 60
             cls.strength = 25
-            return Saxon(cls.health, cls.strenght)
+            return Saxon(cls.health, cls.strength)
 
         cls.viking = generateViking()
         cls.saxon = generateSaxon()

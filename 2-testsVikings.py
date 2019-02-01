@@ -8,9 +8,9 @@ class TestViking(unittest.TestCase):
     @classmethod
     def setUp(cls):
         cls.name = 'Harald'
-        cls.strenght = 150
+        cls.strength = 150
         cls.health = 300
-        cls.viking = Viking(cls.name, cls.health, cls.strenght)
+        cls.viking = Viking(cls.name, cls.health, cls.strength)
 
     def testShouldReciveThreeParams(self):
         self.assertEqual(len(signature(Viking).parameters), 3)

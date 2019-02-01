@@ -38,13 +38,13 @@ Best way to know how our code is doing is to work with tests. To test the `vikin
 To run the battery of tests you must enter the following command line through the terminal.
 
 ```
-% > python3 tests.py -v
+% > python3 <FILE-NAME>.py -v
 ```
 
 To run a single test you must enter the following command line through the terminal.
 
 ```
-% > python3 tests.py -v -k <TEST-NAME>
+% > python3 <FILE-NAME>.py -v -k <TEST-NAME>
 ```
 
 ### Correct Test

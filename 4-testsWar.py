@@ -54,7 +54,7 @@ class TestWar(unittest.TestCase):
 
     def testSaxonArmyReturnEmptyList(self):
         self.war.addSaxon(self.saxon)
-        self.assertEqual(self.war.saxonArmy, [])
+        self.assertEqual(self.war.saxonArmy, [self.saxon])
 
     def testAddSaxonReturnNone(self):
         self.assertEqual(self.war.addSaxon(self.saxon), None)
@@ -91,6 +91,8 @@ class TestWar(unittest.TestCase):
 
     def testVikingArmyList(self):
         for i in range(12):
+            if(len(self.war.vikingArmy) == 0):
+                break
             self.war.saxonAttack()
         self.assertEqual(len(self.war.vikingArmy), 0)
 

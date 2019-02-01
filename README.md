@@ -4,29 +4,31 @@
 
 The Vikings and the Saxons are at War. Both are Soldiers but they have their own methods to fight. Vikings are ported to Python. YAY!!
 
-In this laboratory you will work with the concept of inheritance in Python. 
+In this laboratory you will work with the concept of inheritance in Python.
 
 ### Getting Started
 
-You will find the following files in the folder of this laboratory: 
+You will find the following files in the folder of this laboratory:
 
-* ```vikingsClases.py```
-* ```tests.py```
+- `vikingsClases.py`
+- `tests.py`
 
-You are free to use any of the code editors you have to open these files. 
+You are free to use any of the code editors you have to open these files.
 
 ### Challenge Question
 
-Modify the file ```vikingsClases.py``` so that all the tests are correct.
+Modify the file `vikingsClases.py` so that all the tests are correct.
 
 ## Submission
 
-- Upon completion, run the following commands from your ```master``` branch. 
+- Upon completion, run the following commands from your `master` branch.
 
 ```
 git checkout -b lab-data-vikings
 ```
-- Modify ```vikingsClases.py``` and save your changes. 
+
+- Modify `vikingsClases.py` and save your changes.
+
 ```
 git add .
 git commit -m "done"
@@ -35,20 +37,26 @@ git push origin lab-data-vikings
 
 - Navigate to your repo and [create a Pull Request](https://help.github.com/articles/creating-a-pull-request/)
 
-
-
 ## Tests
 
-Best way to know how our code is doing is to work with tests. To test the ```vikingsClases.py``` file step by step you can comment and uncomment lines of code of ```tests.py```. 
+Best way to know how our code is doing is to work with tests. To test the `vikingsClases.py` file step by step you can comment and uncomment lines of code of `tests.py`.
 
-To run the battery of tests you must enter the following command line through the terminal. 
+To run the battery of tests you must enter the following command line through the terminal.
+
 ```
 % > python3 tests.py -v
 ```
 
+To run a single test you must enter the following command line through the terminal.
+
+```
+% > python3 tests.py -v -k <TEST-NAME>
+```
+
 ### Correct Test
 
-When the tests are all correct you will receive the following message in the terminal. 
+When the tests are all correct you will receive the following message in the terminal.
+
 ```
 % > python3 tests.py -v
 
@@ -62,9 +70,11 @@ Ran 4 tests in 0.001s
 
 OK
 ```
+
 ### Failed Test
 
-When any test is incorrect you will receive the following message in the terminal. It means that you must keep making changes in the ```vikingsClases.py``` file.
+When any test is incorrect you will receive the following message in the terminal. It means that you must keep making changes in the `vikingsClases.py` file.
+
 ```
 $ > python3 tests.py -v
 
@@ -89,15 +99,13 @@ FAILED (failures=1)
 
 ## Exercise
 
-
 ![](https://i.imgur.com/5TPElt8.jpg)
 
-
---------------------------------------------------------------------------------
+---
 
 **Write the code**
 
-Now we have to write the correct code in the ```vikingsClases.py``` file to make the test pass. The starter code you will find in the file is the following:
+Now we have to write the correct code in the `vikingsClases.py` file to make the test pass. The starter code you will find in the file is the following:
 
 ```
 # Soldier
@@ -119,7 +127,7 @@ In this case, the test says that _Soldier constructor function should receive 2 
 # Soldier
 class Soldier:
     def __init__(self, health, strength):
-        # add code here 
+        # add code here
 
 # Viking
 class Viking:
@@ -137,24 +145,25 @@ class War:
 Modify the `Soldier` constructor function and add 2 methods to its prototype: `attack()`, and `receiveDamage()`.
 
 #### constructor function
+
 - should receive **2 arguments** (health & strength)
 - should receive the **`health` property** as its **1st argument**
 - should receive the **`strength` property** as its **2nd argument**
 
 #### `attack()` method
+
 - should be a function
 - should receive **0 arguments**
 - should return **the `strength` property of the `Soldier`**
 
 #### `receiveDamage()` method
+
 - should be a function
 - should receive **1 argument** (the damage)
 - should remove the received damage from the `health` property
 - **shouldn't return** anything
 
-
---------------------------------------------------------------------------------
-
+---
 
 ### Viking
 
@@ -163,9 +172,11 @@ A `Viking` is a `Soldier` with an additional property, their `name`. They also h
 Modify the `Viking` constructor function, have it inherit from `Soldier`, reimplement the `receiveDamage()` method for `Viking`, and add a new `battleCry()` method.
 
 #### inheritance
-- `Viking` should inherit from `Soldier` 
+
+- `Viking` should inherit from `Soldier`
 
 #### constructor function
+
 - should receive **3 arguments** (name, health & strength)
 - should receive the **`name` property** as its **1st argument**
 - should receive the **`health` property** as its **2nd argument**
@@ -197,9 +208,7 @@ Modify the `Viking` constructor function, have it inherit from `Soldier`, reimpl
 - should receive **0 arguments**
 - should return **"Odin Owns You All!"**
 
-
---------------------------------------------------------------------------------
-
+---
 
 ### Saxon
 
@@ -208,9 +217,11 @@ A `Saxon` is a weaker kind of `Soldier`. Unlike a `Viking`, a `Saxon` has no nam
 Modify the `Saxon`, constructor function, have it inherit from `Soldier` and reimplement the `receiveDamage()` method for `Saxon`.
 
 #### inheritance
+
 - `Saxon` should inherit from `Soldier`
 
 #### constructor function
+
 - should receive **2 arguments** (health & strength)
 - should receive the **`health` property** as its **1st argument**
 - should receive the **`strength` property** as its **2nd argument**
@@ -233,15 +244,14 @@ Modify the `Saxon`, constructor function, have it inherit from `Soldier` and rei
 - **if the Saxon is still alive**, it should return _**"A Saxon has received DAMAGE points of damage"**_
 - **if the Saxon dies**, it should return _**"A Saxon has died in combat"**_
 
-
---------------------------------------------------------------------------------
-
+---
 
 ### (BONUS) War
 
 Now we get to the good stuff: WAR! Our `War` constructor function will allow us to have a `Viking` army and a `Saxon` army that battle each other.
 
 Modify the `War` constructor and add 5 methods to its prototype:
+
 - `addViking()`
 - `addSaxon()`
 - `vikingAttack()`
@@ -304,17 +314,15 @@ Returns the current status of the `War` based on the size of the armies.
 - **if the `Viking` array is empty**, should return _**"Saxons have fought for their lives and survive another day..."**_
 - **if there are at least 1 `Viking` and 1 `Saxon`**, should return _**"Vikings and Saxons are still in the thick of battle."**_
 
-
 ## Deliverables
 
-* REQUIRED: ```vikingsClases.py``` modified with your solution to the challenge question.
-
+- REQUIRED: `vikingsClases.py` modified with your solution to the challenge question.
 
 ## Resources
 
-* https://docs.python.org/3/library/unittest.html
-* https://www.python-course.eu/python3_inheritance.php
+- https://docs.python.org/3/library/unittest.html
+- https://www.python-course.eu/python3_inheritance.php
 
 ## Additional Challenge for the Nerds
 
-You can try to make your own tests for your code by creating another test file. 
+You can try to make your own tests for your code by creating another test file.

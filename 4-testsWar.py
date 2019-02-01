@@ -9,6 +9,21 @@ class TestWar(unittest.TestCase):
 
     @classmethod
     def setUp(cls):
+        cls.war = War()
+
+    def testWarShouldReciveNoParams(self):
+        self.assertEqual(len(signature(War).parameters), 0)
+
+    def testVikingArmy(self):
+        self.assertEqual(self.war.vikingArmy, [])
+
+    def testSaxonArmy(self):
+        self.assertEqual(self.war.saxonArmy, [])
+
+
+class TestWar2(unittest.TestCase):
+    @classmethod
+    def setUp(cls):
         def generateViking():
             cls.name = 'Harald'
             cls.strength = 150
@@ -23,15 +38,8 @@ class TestWar(unittest.TestCase):
         cls.viking = generateViking()
         cls.saxon = generateSaxon()
         cls.war = War()
-
-    def testWarShouldReciveNoParams(self):
-        self.assertEqual(len(signature(War).parameters), 0)
-
-    def testVikingArmy(self):
-        self.assertEqual(self.war.vikingArmy, [])
-
-    def testSaxonArmy(self):
-        self.assertEqual(self.war.saxonArmy, [])
+        cls.war.addSaxon(cls.saxon)
+        cls.war.addViking(cls.viking)
 
     def testAddViking(self):
         self.assertEqual(callable(self.war.addViking), True)
@@ -40,7 +48,6 @@ class TestWar(unittest.TestCase):
         self.assertEqual(len(signature(self.war.addViking).parameters), 1)
 
     def testAddVikingInList(self):
-        self.war.addViking(self.viking)
         self.assertEqual(self.war.vikingArmy, [self.viking])
 
     def testAddVikingReturnNull(self):
@@ -53,7 +60,6 @@ class TestWar(unittest.TestCase):
         self.assertEqual(len(signature(self.war.addSaxon).parameters), 1)
 
     def testSaxonArmyReturnEmptyList(self):
-        self.war.addSaxon(self.saxon)
         self.assertEqual(self.war.saxonArmy, [self.saxon])
 
     def testAddSaxonReturnNone(self):
@@ -75,7 +81,7 @@ class TestWar(unittest.TestCase):
         self.assertEqual(len(self.war.saxonArmy), 0)
 
     def testAddSaxon(self):
-        self.war.addSaxon(self.saxon)
+        print(self.war.__dict__)
         self.assertEqual(self.war.vikingAttack(), 'A Saxon has died in combat')
 
     def testSaxonAttackIsFunction(self):
@@ -107,6 +113,7 @@ class TestWar(unittest.TestCase):
         self.assertEqual(len(signature(self.war.showStatus).parameters), 0)
 
     def testShouldReturnStringVikingsWon(self):
+        self.war.vikingAttack()
         self.assertEqual(self.war.showStatus(),
                          'Vikings have won the war of the century!')
 

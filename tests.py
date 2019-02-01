@@ -5,32 +5,6 @@ from inspect import signature
 
 class MyTest(unittest.TestCase):
 
-    def testViking(self):
-        name = 'Harald'
-        strength = 150
-        health = 300
-        viking = Viking(name, strength, health)
-        # should inherit from Soldier
-        self.assertEqual(len(signature(Viking).parameters), 3)
-        self.assertEqual(viking.name, name)
-        self.assertEqual(viking.health, health)
-        self.assertEqual(viking.strength, strength)
-        self.assertEqual(callable(viking.attack), True)
-        self.assertEqual(len(signature(viking.attack).parameters), 0)
-        self.assertEqual(viking.attack(), strength)
-        self.assertEqual(callable(viking.receiveDamage), True)
-        self.assertEqual(len(signature(viking.receiveDamage).parameters), 1)
-        viking.receiveDamage(50)
-        self.assertEqual(viking.health, health - 50)
-        self.assertEqual(viking.receiveDamage(50), name +
-                         ' has received 50 points of damage')
-        self.assertEqual(viking.receiveDamage(70), name +
-                         ' has received 70 points of damage')
-        self.assertEqual(viking.receiveDamage(health),
-                         name + ' has died in act of combat')
-        self.assertEqual(callable(viking.battleCry), True)
-        self.assertEqual(viking.battleCry(), 'Odin Owns You All!')
-
     def testSaxon(self):
         health = 60
         strength = 25

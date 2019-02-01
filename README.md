@@ -21,12 +21,6 @@ Modify the file `vikingsClases.py` so that all the tests are correct.
 
 ## Submission
 
-- Upon completion, run the following commands from your `master` branch.
-
-```
-git checkout -b lab-data-vikings
-```
-
 - Modify `vikingsClases.py` and save your changes.
 
 ```

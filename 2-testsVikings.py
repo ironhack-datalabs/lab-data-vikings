@@ -61,3 +61,7 @@ class TestViking(unittest.TestCase):
 
     def testBattleCryReturnString(self):
         self.assertEqual(self.viking.battleCry(), 'Odin Owns You All!')
+
+
+if __name__ == '__main__':
+    unittest.main()

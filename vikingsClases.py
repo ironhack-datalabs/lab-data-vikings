@@ -20,7 +20,7 @@ class Soldier:
 class Viking(Soldier):
     pass
     def __init__(self, name, health, strength):
-        Soldier.__init__(self, health, strength):
+        Soldier.__init__(self, health, strength)
         self.name = name
 
     def attack(self):

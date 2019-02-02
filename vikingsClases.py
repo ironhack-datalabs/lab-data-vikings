@@ -30,11 +30,11 @@ class Viking(Soldier):
     def receiveDamage(self, damage):
         self.health = self.health - damage
         if self.health > 0:
-            return self.name + "has received" + damage + "points of damage"
+            return self.name + " has received" + str(damage) + "points of damage"
         else:
-            return self.name + "has died in combat"
+            return self.name + " has died in combat"
 
-    def battleCry(self, damage):
+    def battleCry(self):
         return "Odin Owns You All!"
 
 # Saxon

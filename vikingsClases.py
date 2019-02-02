@@ -24,7 +24,7 @@ class Viking(Soldier):
         self.name = name
 
     def attack(self):
-        Soldier.def attack(self)
+        Soldier.attack(self)
         return self.strength
 
     def receiveDamage(self, damage):
@@ -46,7 +46,7 @@ class Saxon(Soldier):
         Soldier.__init__(self, health, strength)
     
     def attack(self):
-        Soldier.def attack(self)
+        Soldier.attack(self)
         return self.strength
 
     def receiveDamage(self, damage):

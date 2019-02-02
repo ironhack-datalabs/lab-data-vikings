@@ -43,7 +43,8 @@ class Viking(Soldier):
 class Saxon(Soldier):
     pass
     def __init__(self, health, strength):
-        Soldier.__init__(self, health, strength)
+        self.health = health
+        self.strength = strength
     
     def attack(self):
         Soldier.attack(self)
@@ -59,5 +60,46 @@ class Saxon(Soldier):
 # War
 
 
-#class War:
-    #pass
+class War(Soldier):
+    pass
+    def __init__(self):
+        self.vikingArmy = []
+        self.saxonArmy = []
+
+    def addViking(self, Viking):
+        self.vikingArmy.append(Viking)
+    
+    def addSaxon(self, Saxon):
+        self.saxonArmy.append(Saxon)
+    
+    def vikingAttack(self):
+        damage = self.Viking.strength
+        Saxon.receiveDamage(self, damage)
+        self.health = self.health - damage
+        if self.Saxon.health == 0:
+            self.saxonArmy.remove(Saxon)
+        return Saxon.receiveDamage - self.Viking.strength   
+        #Saxon.receiveDamage = self.Viking.strength
+        #if self.Saxon.health == 0:
+            #vikingArmy.remove(Saxon)
+        #return Saxon.receiveDamage - self.Viking.strength
+
+    def saxonAttack(self):
+        damage = self.Saxon.strength
+        Viking.receiveDamage(self, damage)
+        self.health = self.health - damage
+        if self.Viking.health == 0:
+            self.vikingArmy.remove(Viking)
+        return Viking.receiveDamage - self.Saxon.strength
+        #Viking.receiveDamage = self.Saxon.strength
+        #if self.Viking.health == 0:
+            #saxonArmy.remove(Viking)
+        #return Viking.receiveDamage - self.Saxon.strength
+
+    def showStatus(self):
+        if self.vikingArmy == False:
+            return "Vikings have won the war of the century!"
+        elif self.saxonArmy == False:
+            return "Saxons have fought for their lives and survive another day..."
+        elif self.vikingArmy == True and self.saxonArmy == True:
+            return "Vikings and Saxons are still in the thick of battle."

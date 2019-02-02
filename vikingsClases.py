@@ -54,7 +54,7 @@ class Saxon(Soldier):
         if self.health > 0:
             return "A saxon has received " + str(damage) + " points of damage"
         else:
-            return "A saxon has died in act of combat"
+            return "A Saxon has died in combat"
 
 # War
 

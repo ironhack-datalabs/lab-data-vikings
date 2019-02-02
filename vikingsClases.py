@@ -24,12 +24,12 @@ class Viking(Soldier):
         self.name = name
 
     def attack(self):
-        Soldier.def attack(self):
+        Soldier.def attack(self)
         return self.strength
 
     def receiveDamage(self, damage):
         self.health = self.health - damage
-        if self.health > :
+        if self.health > 0:
             return self.name + "has received" + self.damage + points of damage
         else:
             return self.name + "has died in combat"
@@ -43,15 +43,15 @@ class Viking(Soldier):
 class Saxon(Soldier):
     pass
     def __init__(self, health, strength):
-        Soldier.__init__(self, health, strength):
+        Soldier.__init__(self, health, strength)
     
     def attack(self):
-        Soldier.def attack(self):
+        Soldier.def attack(self)
         return self.strength
 
     def receiveDamage(self, damage):
         self.health = self.health - damage
-        if self.health > :
+        if self.health > 0:
             return self.name + "has received" + self.damage + points of damage
         else:
             return self.name + "has died in combat"

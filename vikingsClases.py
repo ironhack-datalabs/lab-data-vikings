@@ -8,16 +8,28 @@ class Soldier:
         self.strength = strength
     
     def attack(self):
-        return strength
+        return self.strength
     
     def receiveDamage(self, damage):
-        self.damage = health - damage
+        self.health = self.health - damage
 
 # Viking
 
 
 class Viking:
-    pass
+    def __init__(self, name, health, strength):
+        #inherit from soldier
+        self.name = name
+        self.health = health
+        self.strength = strength
+
+    def attack(self):
+        return self.strength
+
+    def receiveDamage(self, damage):
+        self.health = self.health - damage
+
+    def battleCry(self, damage):
 
 # Saxon
 

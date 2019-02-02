@@ -38,8 +38,9 @@ class TestWar2(unittest.TestCase):
         cls.viking = generateViking()
         cls.saxon = generateSaxon()
         cls.war = War()
-        cls.war.addSaxon(cls.saxon)
+        
         cls.war.addViking(cls.viking)
+        cls.war.addSaxon(cls.saxon)
 
     def testAddViking(self):
         self.assertEqual(callable(self.war.addViking), True)

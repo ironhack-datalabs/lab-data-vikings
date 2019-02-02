@@ -30,7 +30,7 @@ class Viking(Soldier):
     def receiveDamage(self, damage):
         self.health = self.health - damage
         if self.health > 0:
-            return self.name + " has received" + str(damage) + " points of damage"
+            return self.name + " has received " + str(damage) + " points of damage"
         else:
             return self.name + " has died in act of combat"
 
@@ -52,7 +52,7 @@ class Saxon(Soldier):
     def receiveDamage(self, damage):
         self.health = self.health - damage
         if self.health > 0:
-            return "A saxon has received" + str(damage) + " points of damage"
+            return "A saxon has received " + str(damage) + " points of damage"
         else:
             return "A saxon has died in act of combat"
 

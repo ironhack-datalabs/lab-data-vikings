@@ -3,6 +3,7 @@
 
 
 class Soldier:
+    prueba y error
     pass
 
 # Viking

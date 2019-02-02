@@ -43,8 +43,7 @@ class Viking(Soldier):
 class Saxon(Soldier):
     pass
     def __init__(self, health, strength):
-        self.health = health
-        self.strength = strength
+        Soldier.__init__(self, health, strength)
     
     def attack(self):
         Soldier.attack(self)
@@ -73,33 +72,25 @@ class War(Soldier):
         self.saxonArmy.append(Saxon)
     
     def vikingAttack(self):
-        damage = self.Viking.strength
+        damage = self.strength
         Saxon.receiveDamage(self, damage)
         self.health = self.health - damage
-        if self.Saxon.health == 0:
+        if self.health <= 0:
             self.saxonArmy.remove(Saxon)
-        return Saxon.receiveDamage - self.Viking.strength   
-        #Saxon.receiveDamage = self.Viking.strength
-        #if self.Saxon.health == 0:
-            #vikingArmy.remove(Saxon)
-        #return Saxon.receiveDamage - self.Viking.strength
+        return Saxon.receiveDamage
 
     def saxonAttack(self):
-        damage = self.Saxon.strength
+        damage = self.strength
         Viking.receiveDamage(self, damage)
         self.health = self.health - damage
-        if self.Viking.health == 0:
+        if self.health <= 0:
             self.vikingArmy.remove(Viking)
-        return Viking.receiveDamage - self.Saxon.strength
-        #Viking.receiveDamage = self.Saxon.strength
-        #if self.Viking.health == 0:
-            #saxonArmy.remove(Viking)
-        #return Viking.receiveDamage - self.Saxon.strength
+        return Viking.receiveDamage
 
     def showStatus(self):
-        if self.vikingArmy == False:
+        if len(self.saxonArmy) == 0:
             return "Vikings have won the war of the century!"
-        elif self.saxonArmy == False:
+        elif len(self.vikingArmy) == 0:
             return "Saxons have fought for their lives and survive another day..."
-        elif self.vikingArmy == True and self.saxonArmy == True:
+        elif len(self.vikingArmy) > 0 and len(self.saxonArmy) > 0:
             return "Vikings and Saxons are still in the thick of battle."

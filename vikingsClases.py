@@ -127,3 +127,7 @@ class Undead(Soldier):
         elif self.health <= 0:
             dead_msg = ("The Undead cannot die in combat YOU FOOL.")
             return dead_msg
+
+    def frenzy(self):
+        self.strength += random.randint(1, 100)
+        return ("The Ragnarok of the undead will put the Valkyries down!")

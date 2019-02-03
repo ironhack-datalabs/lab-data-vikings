@@ -45,6 +45,14 @@ class TestUndead(unittest.TestCase):
         self.undead.receiveDamage(50)
         self.assertEqual(self.undead.health, self.health + 50)
 
+    def frenzyScreamsTheShitOutOfTheUndead(self):
+        self.assertEqual(self.undead.frenzy(
+        ), "The Ragnarok of the undead will put the Valkyries down!")
+
+    def frenzyIncreasesUndeadStrength(self):
+        self.undead.frenzy()
+        self.assertGreater(self.undead.strength, self.strength)
+
 
 if __name__ == '__main__':
     unittest.main()

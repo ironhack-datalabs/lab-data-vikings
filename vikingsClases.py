@@ -17,7 +17,7 @@ class Soldier:
     
     def receiveDamage(self, damage):
         self.damage = damage
-        self.health = health - damage
+        self.health = self.health - self.damage
     
     
     
@@ -35,7 +35,7 @@ class Viking(Soldier):
     #Methods (attack method is inherited from Soldier class)
     def receiveDamage(self, damage):
         self.damage = damage
-        self.health = health - damage
+        self.health = self.health - self.damage
         if self.health > 0:
             return print("{} has received {} points of damage.".format(self.name, self.damage))
         else:
@@ -59,7 +59,7 @@ class Saxon(Soldier):
     #Methods (attack method is inherited from Soldier class)
     def receiveDamage(self, damage):
         self.damage = damage
-        self.health = health - damage
+        self.health = self.health - self.damage
         if self.health > 0:
             return print("A Saxon has received {} points of damage.".format(self.damage))
         else:

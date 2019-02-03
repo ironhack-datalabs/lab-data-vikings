@@ -17,6 +17,17 @@ class TestSoldier(unittest.TestCase):
     def testHealth(self):
         self.assertEqual(self.soldier.health, self.health)
 
+    def testTypeHealthInt(self):
+        self.assertEqual(type(self.soldier.health), int)
+
+    def testTypeHealthStrHealth(self):
+        with self.assertRaises(ValueError):
+            Soldier('300', self.health)
+
+    def testTypeHealthStrStrength(self):
+        with self.assertRaises(ValueError):
+            Soldier('150', self.strength)
+
     def testStrenght(self):
         self.assertEqual(self.soldier.strength, self.strength)
 

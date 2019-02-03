@@ -4,8 +4,13 @@
 
 class Soldier:
     def __init__(self,health,strength):
-        self.health = health
         self.strength = strength
+        self.health = health
+        if type(health) != int:
+            raise ValueError("Health shuould be a number")
+        
+        if type(strength) != int:
+            raise ValueError("Strength shuould be a number")
     
     def attack(self):
         return self.strength

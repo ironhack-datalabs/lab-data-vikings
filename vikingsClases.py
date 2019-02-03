@@ -131,3 +131,65 @@ class Undead(Soldier):
     def frenzy(self):
         self.strength += random.randint(1, 100)
         return ("The Ragnarok of the undead will put the Valkyries down!")
+
+# The last night: Apocalypse
+
+
+class Apocalypse:
+
+    def __init__(self):
+        self.vikingArmy = []
+        self.saxonArmy = []
+        self.undeadArmy = []
+        self.undead = Undead()
+
+    def addViking(self, vik):
+        self.vikingArmy.append(vik)
+
+    def addSaxon(self, sax):
+        self.saxonArmy.append(sax)
+
+    def addUndead(self, und):
+        self.undeadArmy.append(und)
+
+    def vikingAttack(self):
+        rnd_saxon = random.choice(self.saxonArmy)
+        rnd_viking = random.choice(self.vikingArmy)
+        rtn_vik = rnd_saxon.receiveDamage(rnd_viking.strength)
+        if rnd_saxon.health <= 0:
+            self.saxonArmy.remove(rnd_saxon)
+            self.addUndead(self.undead)
+        return rtn_vik
+
+    def saxonAttack(self):
+        rnd_saxon = random.choice(self.saxonArmy)
+        rnd_viking = random.choice(self.vikingArmy)
+        rtn_sax = rnd_viking.receiveDamage(rnd_saxon.strength)
+        if rnd_viking.health <= 0:
+            self.vikingArmy.remove(rnd_viking)
+            self.addUndead(self.undead)
+        return rtn_sax
+
+    def undeadAttack(self):
+        rnd_saxon = random.choice(self.saxonArmy)
+        rnd_viking = random.choice(self.vikingArmy)
+        rnd_undead = random.choice(self.undeadArmy)
+        rtn_sax = rnd_saxon.receiveDamage(rnd_undead.strength)
+        rtn_vik = rnd_viking.receiveDamage(rnd_undead.strength)
+        if rnd_viking.health <= 0:
+            self.vikingArmy.remove(rnd_viking)
+            self.addUndead(self.undead)
+            rnd_undead.frenzy()
+        if rnd_saxon.health <= 0:
+            self.saxonArmy.remove(rnd_saxon)
+            self.addUndead(self.undead)
+            rnd_undead.frenzy()
+        return (rtn_sax + " " + "and" + " " + rtn_vik)
+
+    def showStatus(self):
+        if len(self.vikingArmy) == 0:
+            return ("Vikings now live in Valhalla. The Earth belongs to the Undead.")
+        elif len(self.saxonArmy) == 0:
+            return ("Saxons now belong to the army of the Undead.")
+        elif ((len(self.vikingArmy) > 0) and (len(self.saxonArmy) > 0)):
+            return ("Vikings and Saxons are still growing the Undead Army.")

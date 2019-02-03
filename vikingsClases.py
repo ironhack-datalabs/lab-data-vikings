@@ -14,11 +14,12 @@ class Soldier:
 # Viking
 class Viking(Soldier):
     def _init_(self, name, health, strength):
-        super()._init_(health, strength)
+        #super()._init_(self, health, strength)
+        Person._init_(self, health, strength)
         self.name = name
 
     def attack(self):
-        return super().attack()
+        return Person.attack()
 
     def receiveDamage(self, damage):
         health = self.health - damage

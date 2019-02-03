@@ -102,3 +102,28 @@ class War:
             return ("Vikings have won the war of the century!")
         elif ((len(self.vikingArmy) > 0) and (len(self.saxonArmy) > 0)):
             return ("Vikings and Saxons are still in the thick of battle.")
+
+
+# The Undead
+
+class Undead(Soldier):
+
+    def __init__(self, health=5000, strength=2000, anger=1):
+        self.health = health
+        self.strength = strength
+        self.anger = anger
+
+    def attack(self):
+        return (super().attack()*self.anger)
+
+    def receiveDamage(self, damage):
+        self.health += damage
+        if self.health > 0:
+            alive_msg = (
+                ("The Undead has recovered {} points of damage.").format(damage))
+            self.anger += damage
+            return alive_msg
+
+        elif self.health <= 0:
+            dead_msg = ("The Undead cannot die in combat YOU FOOL.")
+            return dead_msg

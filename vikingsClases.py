@@ -1,58 +1,57 @@
+"""
+why repeat same function above 
+why damage not self. damage
+if self.health > 0:
+how to test
+"""
+
 # Soldier
-
-
 class Soldier:
     def __init__(self, health, strength):
         self.health = health
         self.strength = strength
 
-    def constructor(health, strength):
-        pass
-
-    def attack():
+    def attack(self):
         return self.strength
 
-    def receiveDamage(damage):
-        self.damage = damage
-        health = self.health - self.damage
+    def receiveDamage(self, damage):
+        health = self.health - damage
 
-
-"""
-### Soldier
-
-Modify the `Soldier` constructor function and add 2 methods to its prototype: `attack()`, and `receiveDamage()`.
-
-#### constructor function
-
-- should receive **2 arguments** (health & strength)
-- should receive the **`health` property** as its **1st argument**
-- should receive the **`strength` property** as its **2nd argument**
-
-#### `attack()` method
-
-- should be a function
-- should receive **0 arguments**
-- should return **the `strength` property of the `Soldier`**
-
-#### `receiveDamage()` method
-
-- should be a function
-- should receive **1 argument** (the damage)
-- should remove the received damage from the `health` property
-- **shouldn't return** anything
-
-"""
 
 # Viking
+class Viking(Soldier):
+    def _init_(self, name, health, strength):
+        self.name = name
+        self.health = health
+        self.strength = strength
 
+    def attack(self):
+        return self.strength
 
-class Viking:
-    pass
+    def receiveDamage(self, damage):
+        health = self.health - damage
+        if self.health > 0:
+            return "{} has received {} points of damage".format(self.name, damage)
+        else:
+            return "{} has died in act of combat".format(self.name)
+
+    def battleCry(self):
+        return "Odin Owns You All!"
 
 
 # Saxon
+class Saxon(Soldier):
+    def __init__(self, health, strength):
+        self.health = health
+        self.strength = strength
 
+    def attack(self):
+        return self.strength
 
-class Saxon:
-    pass
+    def receiveDamage(self, damage):
+        self.health = self.health - damage
+        if self.health > 0:
+            return "A Saxon has received {} points of damage".format(damage)
+        else:
+            return "A Saxon has died in combat"
 

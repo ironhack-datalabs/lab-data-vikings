@@ -9,7 +9,8 @@ class TestUndead(unittest.TestCase):
     def setUp(cls):
         cls.strength = 2000
         cls.health = 5000
-        cls.undead = Undead(cls.health, cls.strength)
+        cls.anger = 1
+        cls.undead = Undead(cls.health, cls.strength, cls.anger)
 
     def testConstructorSignature(self):
         self.assertEqual(len(signature(Undead).parameters), 3)
@@ -45,11 +46,14 @@ class TestUndead(unittest.TestCase):
         self.undead.receiveDamage(50)
         self.assertEqual(self.undead.health, self.health + 50)
 
-    def frenzyScreamsTheShitOutOfTheUndead(self):
+    def testFrenzy(self):
+        self.assertEqual(callable(self.undead.frenzy), True)
+
+    def testFrenzyScreamsTheShitOutOfTheUndead(self):
         self.assertEqual(self.undead.frenzy(
         ), "The Ragnarok of the undead will put the Valkyries down!")
 
-    def frenzyIncreasesUndeadStrength(self):
+    def testFrenzyIncreasesUndeadStrength(self):
         self.undead.frenzy()
         self.assertGreater(self.undead.strength, self.strength)
 

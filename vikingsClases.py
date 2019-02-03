@@ -5,7 +5,7 @@
 class Soldier:
   #Constructor: contiene las propiedades self, health y strength
   def __init__(self, health, strength):
-    self.health = healt
+    self.health = health
     self.strength = strength
   #Método 'attack' no recive ninguna variable aparte de self. Este método devuelve la propiedad 'strength'.
   def attack(self):

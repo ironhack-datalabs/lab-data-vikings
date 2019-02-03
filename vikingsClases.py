@@ -42,8 +42,7 @@ class Viking(Soldier):
             return print("{} has died in act of combat.".format(self.name))
         
     def battleCry(self):
-        self.battleCry = print("Odin Owns You All!")
-        return self.battleCry
+        return print("Odin Owns You All!")
     
     
 

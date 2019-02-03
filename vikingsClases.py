@@ -74,4 +74,11 @@ class Saxon(Soldier):
 class War:
     def __init__(self, vikingArmy, saxonArmy):
         self.vikingArmy = np.array(vikingArmy)
+        self.saxon = np.array(saxonArmy)
+    
+    
+    #Methods
+    def addViking(self, viking):
+        self.viking = viking
+        self.vikingArmy.append(self.viking)
         

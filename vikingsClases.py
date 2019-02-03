@@ -18,23 +18,24 @@ class Soldier:
 
 class Viking(Soldier):
     def __init__(self, name, health, strength):
-        super().__init__(self, health, strength)
+        super().__init__(health, strength)
         self.name = name
 
     def attack(self):
-        super().attack(self)
+        return super().attack()
 
     def receiveDamage(self, damage):
         self.health -= damage
         if self.health > 0:
             alive_msg = (
-                "{} has received {} points of damage".format(self.name, damage))
+                ("{} has received {} points of damage").format(self.name, damage))
             return alive_msg
+
         elif self.health == 0:
-            dead_msg = ("{} has died in act of combat".format(self.name))
+            dead_msg = (("{} has died in act of combat").format(self.name))
             return dead_msg
 
-    def battleCry():
+    def battleCry(self):
         return ("Odin Owns You All!")
 
 

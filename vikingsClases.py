@@ -1,5 +1,5 @@
 #Project lab-data-vikings
-
+import random
 
 # Soldier (constructor, ataque y daño)
 class Soldier:
@@ -69,7 +69,45 @@ class Saxon(Soldier):
 
 
 # War
-
-
 class War:
-    pass
+    
+    #Se crea el constructor en el cual se crean 2 propiedades a las cuales se le asigna un array vacio a cada una
+    def __init__(self):
+        self.vikingArmy = []
+        self.saxonArmy = []
+    
+    #Se crea el método addViking el cual agrega un 'Viking' (con sus propiedades) al ejercito vikingo (vikingArmy)
+    def addViking(self, Viking):
+        self.vikingArmy.append(Viking)
+    
+    #Se crea el método addSaxon el cual agrega un 'Saxon' (con sus propiedades) al ejercito sajón (saxonArmy)
+    def addSaxon(self, Saxon):
+        self.saxonArmy.append(Saxon)
+
+    #Se crea el método vikingAttack el cual define un ataque vikingo eligiendo de forma aleatoria un "vikingo" y un "sajón" de cada uno de los ejercitos. 
+    #Retorna el resultado (mensaje) según se ha definido en el método receiveDamage definido dentro de la clase Viking.
+    def vikingAttack(self):
+        saxons = random.choice(self.saxonArmy)
+        vikings = random.choice(self.vikingArmy)
+        r_vikings = saxons.receiveDamage(vikings.strength)
+        if saxons.health <= 0:
+            self.saxonArmy.remove(saxons)
+        return r_vikings
+
+    #De forma equivalente se crea el método de ataque sajón.
+    def saxonAttack(self):
+        saxons = random.choice(self.saxonArmy)
+        vikings = random.choice(self.vikingArmy)
+        r_saxons = vikings.receiveDamage(saxons.strength)
+        if vikings.health <= 0:
+            self.vikingArmy.remove(vikings)
+        return r_saxons
+
+    #Este método muestra el resultado de la batalla en función del estado de las propiedades definidas en esta clase.
+    def showStatus(self):
+        if len(self.vikingArmy) == 0:
+            return ("Saxons have fought for their lives and survive another day...")
+        elif len(self.saxonArmy) == 0:
+            return ("Vikings have won the war of the century!")
+        elif ((len(self.vikingArmy) > 0) and (len(self.saxonArmy) > 0)):
+            return ("Vikings and Saxons are still in the thick of battle.")

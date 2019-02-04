@@ -29,7 +29,7 @@ class Viking(Soldier):
   
   #Método 'attack' se hereda de soldier.
   def attack(self):
-    return super().attack
+    return super().attack()
   
   #Método 'receiveDamage' recibe la variable daño ('skadi') la cual afecta a la propiedad 'health'. Adicionalmente este método devuelve un mensaje en función del estado del vikingo (si 'health' <= 0 es que ha muerto).
   def receiveDamage(self, skadi):
@@ -46,10 +46,27 @@ class Viking(Soldier):
 
 
 # Saxon
+class Saxon(Soldier):
+
+  #Constructor: hereda de Soldier las propiedades health y strength.
+  def __init__(self, health, strength):
+    super().__init__(health, strength)
+
+  #Método 'attack' se hereda de soldier.
+  def attack(self):
+    return super().attack()
+  
+  #Método 'receiveDamage' recibe la variable daño ('skadi') la cual afecta a la propiedad 'health'. Adicionalmente este método devuelve un mensaje en función del estado del sajón (si 'health' <= 0 es que ha muerto).
+  def receiveDamage(self, skadi):
+    self.health = self.health - skadi
+    if self.health > 0:
+      saxon_alive = ('A Saxon has received {} points of damage').format(skadi)
+      return saxon_alive
+    else:
+      saxon_dead = 'A Saxon has died in combat'
+      return saxon_dead
 
 
-class Saxon:
-    pass
 
 # War
 

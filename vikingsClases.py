@@ -45,15 +45,21 @@ class Saxon (Soldier):
 
 
 class War:
-
-    def__init__(self,):
+    def __init__(self):
         vikingArmy = []
         saxonArmy = []
-    def addViking (self, Viking)
+    def addViking (self, Viking):
         self.Viking = Viking
         vikingArmy.append(Viking)
-    def addSaxon (self, Saxon)
+    def addSaxon (self, Saxon):
         self.Saxon = Saxon
-        vikingSaxon.append(Saxon)
-    def vikingAttack
+        saxonArmy.append(Saxon)
+    def vikingAttack (self):
+        Saxon.receiveDamage == Viking.Strength
+        return 'result of calling `receiveDamage()` of a Saxon'. format (Viking.strength)
+    def saxonAttack (self):
+        Viking.receiveDamage == Saxon.Strength
+        return 'result of calling `receiveDamage()` of a Viking'. format (Saxon.strength)
+
+
     

@@ -322,74 +322,21 @@ Returns the current status of the `War` based on the size of the armies.
 You can try to make your own tests for your code by creating another test file.
 
 
-### (BONUS) NECROMANCER
+### (BONUS) NECROMANCER & APOCALYPSE
 
 Once the war has been solved, many lifes have gone. The winners are glorious, but the dead ones bite the dust. Ashes to ashes. 
 
-From the inner nucleus of Earth, a shallow voice mumbles archaic voices and rituals that remind the living how luck they are. The unholy goddes of the undead raises, becoming the shape of flesh and bones of an undead necromancer.
+From the depth of the nucleus of Earth, a shallow voice mumbles archaic voices and runic rituals that remind the living how luck they are. The unholy goddes of the undead raises, becoming the shape of flesh and bones of an undead necromancer.
 
 The necromancer raises an army of dead saxons and vikings that will take their due revenge.
 
-Modify the `War` constructor and add 5 methods to its prototype:
+The Undead has an additional feature: the `anger`. It works as a strength multiplier, and it raises as the unit receives damage. It has to be added to the constructor signature as another parameter. 
 
-- `addViking()`
-- `addSaxon()`
-- `vikingAttack()`
-- `saxonAttack()`
-- `showStatus()`
+Besides, the Undead has another method, the `frenzy`. It is a booster for the Undead. As the vikings and saxons die in battle, the Undead feels this method that increases its strength in a random number. 
 
-#### constructor function
+I have added several features to the Undead. ;))
 
-When we first create a `War`, the armies should be empty. We will add soldiers to the armies later.
+Additionally, I have created another kind of `war`: the Apocalypse. 
 
-- should receive **0 arguments**
-- should assign an empty array to the **`vikingArmy` property**
-- should assign an empty array to the **`saxonArmy` property**
+Please, go through the code and enjoy!
 
-#### `addViking()` method
-
-Adds 1 `Viking` to the `vikingArmy`. If you want a 10 `Viking` army, you need to call this 10 times.
-
-- should be a function
-- should receive **1 argument** (a `Viking` object)
-- should add the received `Viking` to the army
-- **shouldn't return** anything
-
-#### `addSaxon()` method
-
-The `Saxon` version of `addViking()`.
-
-- should be a function
-- should receive **1 argument** (a `Saxon` object)
-- should add the received `Saxon` to the army
-- **shouldn't return** anything
-
-#### `vikingAttack()` method
-
-A `Saxon` (chosen at random) has their `receiveDamage()` method called with the damage equal to the `strength` of a `Viking` (also chosen at random). This should only perform a single attack and the `Saxon` doesn't get to attack back.
-
-- should be a function
-- should receive **0 arguments**
-- should make a `Saxon` `receiveDamage()` equal to the `strength` of a `Viking`
-- should remove dead saxons from the army
-- should return **result of calling `receiveDamage()` of a `Saxon`** with the `strength` of a `Viking`
-
-#### `saxonAttack()` method
-
-The `Saxon` version of `vikingAttack()`. A `Viking` receives the damage equal to the `strength` of a `Saxon`.
-
-- should be a function
-- should receive **0 arguments**
-- should make a `Viking` `receiveDamage()` equal to the `strength` of a `Saxon`
-- should remove dead vikings from the army
-- should return **result of calling `receiveDamage()` of a `Viking`** with the `strength` of a `Saxon`
-
-#### `showStatus()` method
-
-Returns the current status of the `War` based on the size of the armies.
-
-- should be a function
-- should receive **0 arguments**
-- **if the `Saxon` array is empty**, should return _**"Vikings have won the war of the century!"**_
-- **if the `Viking` array is empty**, should return _**"Saxons have fought for their lives and survive another day..."**_
-- **if there are at least 1 `Viking` and 1 `Saxon`**, should return _**"Vikings and Saxons are still in the thick of battle."**_

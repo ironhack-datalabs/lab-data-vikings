@@ -1,4 +1,5 @@
 import numpy as np
+import random as rd
 
 
 
@@ -16,8 +17,7 @@ class Soldier:
         return self.strength
     
     def receiveDamage(self, damage):
-        self.damage = damage
-        self.health = self.health - self.damage
+        self.health = self.health - damage
     
     
     
@@ -34,15 +34,14 @@ class Viking(Soldier):
     
     #Methods (attack method is inherited from Soldier class)
     def receiveDamage(self, damage):
-        self.damage = damage
-        self.health = self.health - self.damage
+        self.health = self.health - damage
         if self.health > 0:
-            return print("{} has received {} points of damage.".format(self.name, self.damage))
+            return "{} has received {} points of damage.".format(self.name, damage)
         else:
-            return print("{} has died in act of combat.".format(self.name))
+            return "{} has died in act of combat.".format(self.name)
         
     def battleCry(self):
-        return print("Odin Owns You All!")
+        return "Odin Owns You All!"
     
     
 
@@ -58,12 +57,11 @@ class Saxon(Soldier):
     
     #Methods (attack method is inherited from Soldier class)
     def receiveDamage(self, damage):
-        self.damage = damage
-        self.health = self.health - self.damage
+        self.health = self.health - damage
         if self.health > 0:
-            return print("A Saxon has received {} points of damage.".format(self.damage))
+            return "A Saxon has received {} points of damage.".format(damage)
         else:
-            return print("A Saxon has died in combat.")
+            return "A Saxon has died in combat."
         
         
 
@@ -73,40 +71,46 @@ class Saxon(Soldier):
 
 class War:
     def __init__(self, vikingArmy, saxonArmy):
-        self.vikingArmy = np.array(vikingArmy)
-        self.saxonArmy = np.array(saxonArmy)
+        self.vikingArmy = list()
+        self.saxonArmy = list()
     
     
     #Methods
     def addViking(self, viking):
-        self.viking = viking
-        self.vikingArmy.append(self.viking)
+        add_viking = rd.choice(vikingArmy)
+        self.vikingArmy.append(add_viking)
     
     def addSaxon(self, saxon):
-        self.saxon = saxon
-        self.saxonArmy.append(self.saxon)
+        add_saxon = rd.choice(saxonArmy)
+        self.saxonArmy.append(add_saxon)
         
         
     #A Saxon (chosen at random) has their receiveDamage() method called with the damage equal to the strength of a Viking (also chosen at random). This should only perform a single attack and the Saxon doesn't get to attack back.    
     def vikingAttack(self):
-        if Saxon.health < 0:
-            self.saxonArmy.remove(self.saxon)
-        return receiveDamage(Saxon, damage = Viking.strength)
+        viking_attack = rd.choice(self.vikingArmy)
+        saxon_damaged = rd.choice(self.saxonArmy)
+        conclusion = saxon_damaged.receiveDamage(viking_attack.strength)
+        if saxon_damaged.health < 0:
+            self.saxonArmy.remove(saxon_damaged)
+        return conclusion
     
     def saxonAttack(self):
-        if Viking.health < 0:
-            self.vikingArmy.remove(self.viking)
-        return receiveDamage(Viking, damage = Saxon.strength)
+        saxon_attack = rd.choice(self.saxonArmy)
+        viking_damaged = rd.choice(self.vikingArmy)
+        conclusion2 = viking_damaged.receiveDamage(saxon_attack.strength)
+        if viking_damaged.health < 0:
+            self.vikingArmy.remove(viking_damaged)
+        return conclusion2
     
     def showStatus(self):
         if self.saxonArmy <= 0:
-            return print("Vikings have won the war of the century!")
+            return "Vikings have won the war of the century!"
         else:
-            return print("Vikings and Saxons are still in the thick of battle.")
+            return "Vikings and Saxons are still in the thick of battle."
         if self.vikingArmy <= 0:
-            return print("Saxons have fought for their lives and survive another day...")
+            return "Saxons have fought for their lives and survive another day..."
         else:
-            return print("Vikings and Saxons are still in the thick of battle.")
+            return "Vikings and Saxons are still in the thick of battle."
     
         
         

@@ -19,8 +19,8 @@ class Soldier():
 class Viking(Soldier):
     
     def __init__(self, health, strength, name):
-        self.name = name 
         super().__init__(health, strength)
+        self.name = name 
        
       
     def receiveDamage(self, damage): 
@@ -65,7 +65,7 @@ class War:
         import random
         random.choice(self.saxonArmy).receiveDamage(random.choice(self.vikingArmy).strength)
         if random.choice(self.saxonArmy).health <= 0:
-            self.saxonArmy = self.saxonArmy - 1
+            self.saxonArmy = self.saxonArmy[:, -1]
         return random.choice(self.vikingArmy).strength
     
     def saxonAttack(self):

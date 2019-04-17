@@ -3,12 +3,12 @@
 
 
 class Soldier:
-    def __init__(self, health, strenght):
+    def __init__(self, health, strength):
         self.health = health
-        self.strenght = strenght
+        self.strength = strength
 
     def attack(self):
-        return self.strenght
+        return self.strength
     def receiveDamage(self, damage):
         self.health -= damage
 
@@ -16,38 +16,73 @@ class Soldier:
 
 
 class Viking(Soldier):
-    def __init__(self, name, health, strenght):
+    def __init__(self, name, health, strength):
         self.name = name
         self.health = health
-        self.strenght = strenght
+        self.strength = strength
 
-    def super().receiveDamage(self, damage):
-        self.health -= damage
-        if health <= 0:
-            print(name,'has died in act of combat')
+    def receiveDamage(self, damage):
+        super().receiveDamage(damage)
+        if self.health <= 0:
+            status = "{} has died in act of combat".format(self.name)
         else:
-            print(name,'has received',damage,'points of damage')
+            status = "{} has received {} points of damage".format(self.name, str(damage)) 
+        return status
 
     def battleCry(self):
-        print('Odin Owns You All!')
+        cry = "Odin Owns You All!"
+        return cry
 
 # Saxon
 
 
 class Saxon(Soldier):
-    def __init__(self, health, strenght):
+    def __init__(self, health, strength):
         self.health = health
-        self.strenght = strenght
-
-    def super().receiveDamage(self, damage):
-        self.health -= damage
-        if health <= 0:
-            print('A Saxon has died in combat')
+        self.strength = strength
+   
+    def receiveDamage(self, damage):
+        super().receiveDamage(damage)
+        if self.health <= 0:
+            status = "A Saxon has died in combat"
         else:
-            print('A Saxon has received',damage,'points of damage')   
+            status = "A Saxon has received {} points of damage".format(str(damage))  
+        return status
 
 # War
 
 
 class War:
-    pass
+    def __init__(self):
+        self.vikingArmy = []
+        self.saxonArmy = []
+    
+    def addViking(self,Viking):
+        self.vikingArmy.append(Viking)
+
+    def addSaxon(self,Saxon):
+        self.vikingArmy.append(Saxon)
+
+    def vikingAttack(self):
+        Saxon.receiveDamage(Viking.strength)
+        result = Saxon.receiveDamage(Viking.strength)
+        if Saxon.health <= 0:
+            self.saxonArmy.pop()
+        return result
+
+    def saxonAttack(self):
+        Viking.receiveDamage(Saxon.strength)
+        result = Viking.receiveDamage(Saxon.strength)
+        if Viking.health <= 0:
+            self.vikingArmy.pop()
+        return result
+
+    def showStatus(self):
+        if len(self.saxonArmy) >= 1 and len(self.vikingArmy) >= 1:
+            result = "Vikings and Saxons are still in the thick of battle."
+        elif len(self.saxonArmy) <= 0 :
+            result = "Vikings have won the war of the century!"
+        elif len(self.vikingArmy) <= 0:
+            result = "Saxons have fought for their lives and survive another day..."
+        
+        return result

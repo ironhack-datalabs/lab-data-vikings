@@ -1,4 +1,5 @@
 
+import random
 # Soldier
 
 
@@ -60,10 +61,18 @@ class War():
         self.saxonArmy.append(saxon)
 
     def vikingAttack(self):
-        pass
+        randViking = random.choice(self.vikingArmy)
+        randSaxon = random.choice(self.saxonArmy)
+        if randViking.strength >= randSaxon.health:
+            self.saxonArmy.remove(randSaxon)
+        return randSaxon.receiveDamage(randViking.strength)
 
     def saxonAttack(self):
-        pass
+        randViking = random.choice(self.vikingArmy)
+        randSaxon = random.choice(self.saxonArmy)
+        if randSaxon.strength >= randViking.health:
+            self.vikingArmy.remove(randViking)
+        return randViking.receiveDamage(randSaxon.strength)
 
     def showStatus(self):
         if len(self.saxonArmy) == 0:

@@ -1,5 +1,5 @@
 
-# Soldier
+# Soldiers
 
 
 class Soldier:

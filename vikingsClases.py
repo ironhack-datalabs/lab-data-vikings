@@ -52,4 +52,36 @@ class Saxon(Soldier):
 
 
 class War:
-    pass
+    def __init__(self):
+        self.vikingArmy = list()
+        self.saxonArmy = list()
+
+    def addViking(self, Viking):
+        self.vikingArmy.append(Viking)
+
+    def addSaxon(self, Saxon):
+        self.saxonArmy.append(Saxon)
+
+    def vikingAttack(self):
+        saxon = self.saxonArmy[0]
+        viking = self.vikingArmy[0]
+        result = saxon.receiveDamage(viking.strength)
+        if saxon.health <= 0:
+            self.saxonArmy.pop()
+        return result
+
+    def saxonAttack(self):
+        saxon = self.saxonArmy[0]
+        viking = self.vikingArmy[0]
+        result = viking.receiveDamage(saxon.strength)
+        if viking.health <= 0:
+            self.vikingArmy.pop()
+        return result
+
+    def showStatus(self):
+        if len(self.saxonArmy) == 0:
+            return "Vikings have won the war of the century!"
+        elif len(self.vikingArmy) == 0:
+            return "Saxons have fought for their lives and survive another day..."
+        else:
+            return "Vikings and Saxons are still in the thick of battle."

@@ -10,6 +10,8 @@ class TestSoldier(unittest.TestCase):
         cls.strength = 150
         cls.health = 300
         cls.soldier = Soldier(cls.health, cls.strength)
+    
+    
 
     def testConstructorSignature(self):
         self.assertEqual(len(signature(Soldier).parameters), 2)
@@ -46,3 +48,5 @@ class TestSoldier(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
+
+

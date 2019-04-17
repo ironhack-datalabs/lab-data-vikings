@@ -20,15 +20,15 @@ class TestSoldier(unittest.TestCase):
     def testStrenght(self):
         self.assertEqual(self.soldier.strength, self.strength)
 
-    #def testAttackShouldBeFunction(self):
-        #self.assertEqual(callable(self.soldier.attack), True)
+    def testAttackShouldBeFunction(self):
+        self.assertEqual(callable(self.soldier.attack), True)
 
-    #def testAttackHasNoParams(self):
-    #    self.assertEqual(len(signature(self.soldier.attack).parameters), 0)
+    def testAttackHasNoParams(self):
+        self.assertEqual(len(signature(self.soldier.attack).parameters), 0)
 
-    #def testAttackRetunsStrength(self):
-    #    self.assertEqual(self.soldier.attack(), self.strength)
-'''
+    def testAttackRetunsStrength(self):
+        self.assertEqual(self.soldier.attack(), self.strength)
+
     def testReceivesDamage(self):
         self.assertEqual(callable(self.soldier.receiveDamage), True)
 
@@ -42,7 +42,7 @@ class TestSoldier(unittest.TestCase):
     def testCanReceiveDamage(self):
         self.soldier.receiveDamage(50)
         self.assertEqual(self.soldier.health, self.health - 50)
-'''
+
 
 if __name__ == '__main__':
     unittest.main()

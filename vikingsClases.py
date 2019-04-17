@@ -61,26 +61,28 @@ class War:
         self.saxonArmy.append(saxon)
 
     def vikingAttack(self):
-        id_saxon = 0  # random.randint(0, len(self.saxonArmy))
-        id_viking = 0  # random.randint(0, len(self.vikingArmy))
+        # random.randint(0, len(self.saxonArmy))
+        id_saxon = random.choice(self.saxonArmy)
+        # random.randint(0, len(self.vikingArmy))
+        id_viking = random.choice(self.vikingArmy)
 
         saxon = self.saxonArmy[id_saxon]
         viking = self.vikingArmy[id_viking]
 
-        if saxon.health <= 0:
-            self.saxonArmy.pop(id_saxon)
+        if saxon.health <= viking.strength:
+            self.saxonArmy.remove(id_saxon)
 
         return saxon.receiveDamage(viking.strength)
 
     def saxonAttack(self):
-        id_saxon = 0  # random.randint(0, len(self.saxonArmy))
-        id_viking = 0  # random.randint(0, len(self.vikingArmy))
+        id_saxon = random.choice(self.saxonArmy)
+        id_viking = random.choice(self.vikingArmy)
 
         saxon = self.saxonArmy[id_saxon]
         viking = self.vikingArmy[id_viking]
 
-        if viking.health <= 0:
-            self.vikingArmy.pop(id_viking)
+        if viking.health <= saxon.strength:
+            self.vikingArmy.remove(id_viking)
 
         return viking.receiveDamage(saxon.strength)
 

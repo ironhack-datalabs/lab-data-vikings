@@ -21,6 +21,14 @@ class Viking(Soldier):
 		self.name=name
 		self.health=health
 		self.strength=strength
+		
+	def receiveDamage(self, damage):
+		self.health-=damage
+		if self.health>0    : return "{} has received {} points of damage".format(self.name, damage)	
+		elif self.health<=0 : return "{} has died in act of combat".format(self.name)
+		
+	def battleCry(self):
+		return "Odin Owns You All!"	
 
 
 

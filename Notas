@@ -1,0 +1,10 @@
+En el fichero de vikingClases.py, escribir el código para que los Tests se puedan ejecutar correctamente.
+
+Para ejecutar un test en la terminal:
+python3 1-testsSoldier.py -v -k testConstructorSignature
+En mi caso --> no reconoce el -k
+
+--> Por lo tanto --> 
+
+Para ejecutar todos los tests en la terminal:
+python3 1-testsSoldier.py -v 

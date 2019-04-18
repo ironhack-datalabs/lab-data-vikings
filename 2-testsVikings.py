@@ -30,7 +30,7 @@ class TestViking(unittest.TestCase):
     def testAttackReciveNoParameters(self):
         self.assertEqual(len(signature(self.viking.attack).parameters), 0)
 
-    def testAttackSouldReturnStrength(self):
+    def testAttackShouldReturnStrength(self):
         self.assertEqual(self.viking.attack(), self.strength)
 
     def testReceiveDamageIsFunction(self):

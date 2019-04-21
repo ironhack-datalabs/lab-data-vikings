@@ -80,4 +80,9 @@ class War():
         return v.receiveDamage(s.strength)
 
     def showStatus(self):
-        pass
+        if self.vikingArmy == []:
+            return 'Saxons have fought for their lives and survive another day...'
+        elif self.saxonArmy == []:
+            return 'Vikings have won the war of the century!'
+        elif self.saxonArmy != [] and self.vikingArmy != []:
+            return 'Vikings and Saxons are still in the thick of battle.' 

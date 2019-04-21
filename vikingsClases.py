@@ -65,12 +65,19 @@ class War():
 
     def vikingAttack(self):
         import random
-        i_v = random.randint(0,len(self.vikingArmy)-1)
-        i_s = random.randint(0,len(self.saxonArmy)-1)
-        self.saxonArmy[i_s].health = self.saxonArmy[i_s].health - self.vikingArmy[i_v].attack
+        v = random.choice(self.vikingArmy)
+        s = random.choice(self.saxonArmy)
+        if s.health < 0:
+            self.saxonArmy.remove(s)
+        return s.receiveDamage(v.strength)
 
     def saxonAttack(self):
-        pass
+        import random
+        v = random.choice(self.vikingArmy)
+        s = random.choice(self.saxonArmy)
+        if v.health < 0:
+            self.vikingArmy.remove(v)
+        return v.receiveDamage(s.strength)
 
     def showStatus(self):
         pass

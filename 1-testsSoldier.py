@@ -3,7 +3,7 @@ from vikingsClases import Soldier
 from inspect import signature
 
 
-class TestSoldier(*cls):
+class TestSoldier(unittest.TestCase):
 
     @classmethod
     def setUp(cls):
@@ -11,9 +11,12 @@ class TestSoldier(*cls):
         cls.health = 300
         cls.soldier = Soldier(cls.health, cls.strength)
 
-''''
+
+'''
     def testConstructorSignature(self):
         self.assertEqual(len(signature(Soldier).parameters), 2)
+
+
 
     def testHealth(self):
         self.assertEqual(self.soldier.health, self.health)
@@ -44,6 +47,6 @@ class TestSoldier(*cls):
         self.soldier.receiveDamage(50)
         self.assertEqual(self.soldier.health, self.health - 50)
 
-
+'''
 if __name__ == '__main__':
-    unittest.main()'''
+    unittest.main()

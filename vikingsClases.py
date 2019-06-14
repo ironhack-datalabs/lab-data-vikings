@@ -1,3 +1,4 @@
+import random
 
 # Soldier
 
@@ -44,11 +45,19 @@ class Saxon(Soldier):
             return ("A Saxon has died in combat")
 
 
-"""
-# War
-
-
 class War:
-    pass
+    def __init__(self):
+        self.vikingArmy = []
+        self.saxonArmy = []
 
-        """
+    def addViking(self, c):
+        self.vikingArmy.append(c)
+
+    def addSaxon(self, s):
+        self.saxonArmy.append(s)
+
+    def vikingAttack(self):
+        self.c.receiveDamage = self.c.strength
+
+    def saxonAttack(self):
+        self.c.receiveDamage = self.c.strength

@@ -5,18 +5,16 @@ from inspect import signature
 
 class TestSoldier(unittest.TestCase):
 
+
+'''
     @classmethod
     def setUp(cls):
         cls.strength = 150
         cls.health = 300
         cls.soldier = Soldier(cls.health, cls.strength)
 
-
-'''
     def testConstructorSignature(self):
         self.assertEqual(len(signature(Soldier).parameters), 2)
-
-
 
     def testHealth(self):
         self.assertEqual(self.soldier.health, self.health)
@@ -46,7 +44,6 @@ class TestSoldier(unittest.TestCase):
     def testCanReceiveDamage(self):
         self.soldier.receiveDamage(50)
         self.assertEqual(self.soldier.health, self.health - 50)
-
 '''
 if __name__ == '__main__':
     unittest.main()

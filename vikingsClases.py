@@ -1,24 +1,87 @@
-
 # Soldier
+import random
+
+class Soldier():
+	def __init__(self, health, strength):
+		self.health = health
+		self.strength = strength
 
 
-class Soldier:
-    pass
+	def attack(self):
+		return self.strength
+
+
+
+	def receiveDamage(self, damage):
+		#if self.health < 0:
+			self.health = self.health-damage
+
+
+  
 
 # Viking
 
+class Viking(Soldier):
+    def __init__(self, name, health, strength):
+    	super(Viking, self).__init__(health, strength)
+    	self.name = name
+    	
+    def receiveDamage(self, damage):
+    	self.health = self.health-damage
+    	if self.health > 0:
+    		return "{} has received {} points of damage".format(self.name, damage)
+    	else:
+    		return "{} has died in act of combat".format(self.name)
 
-class Viking:
-    pass
+
+    def battleCry(self):
+    	return "Odin Owns You All!"
 
 # Saxon
 
 
-class Saxon:
-    pass
+class Saxon(Soldier):
+    def __init__(self, health, strength):
+        super(Saxon, self).__init__(health, strength)
+
+    def receiveDamage(self, damage):
+        self.health = self.health-damage
+        if self.health > 0:
+            return "A Saxon has received {} points of damage".format(damage)
+        else:
+            return "A Saxon has died in combat"
 
 # War
 
 
-class War:
-    pass
+class War():
+    def __init__(self):
+        self.vikingArmy=[]
+
+        self.saxonArmy=[]
+
+    def addViking(self, Viking):
+        self.Viking = Viking
+        self.vikingArmy.append(Viking)        
+
+
+    def addSaxon(self, Saxon):
+        self.Saxon = Saxon
+        self.saxonArmy.append(Saxon)        
+        
+
+
+    def vikingAttack(self):
+        #un soldado aleatorio de cada ejercito
+        s = random.choice(saxonArmy) 
+        v = random.choice(vikingArmy)
+        
+        return s.receiveDamage(v.attack)
+
+    
+
+'''
+    def showStatus():
+        
+
+'''

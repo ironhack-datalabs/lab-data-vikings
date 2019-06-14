@@ -11,32 +11,31 @@ class Soldier:
         return self.strength
 
     def receiveDamage(self, damage):
-        self.health = health - damage
+        self.damage = damage
+        self.health -= damage
 
 
-"""
+class Viking(Soldier):
+    def __init__(self, name, health, strength):
+        super(Viking, self).__init__(health, strength)
+        self.name = name
+        self.health = health
 
+    def attack(self):
+        return self.strength
 
-#### `attack()` method
+    def receiveDamage(self, damage):
+        self.health -= damage
+        self.damage = damage
+        if self.health > 0:
+            return "{} has received {} points of damage" .format(self.name, self.damage)
+        elif self.health <= 0:
+            return "{} has died in act of combat" .format(self.name)
 
-- should be a function
-- should receive **0 arguments**
-- should return **the `strength` property of the `Soldier`**
+    def battleCry(self):
+        return "Odin Owns You All!"
 
-#### `receiveDamage()` method
-
-- should be a function
-- should receive **1 argument** (the damage)
-- should remove the received damage from the `health` property
-- **shouldn't return** anything
-# Viking
-"""
-
-
-class Viking:
-    pass
-
-# Saxon
+    # Saxon
 
 
 class Saxon:

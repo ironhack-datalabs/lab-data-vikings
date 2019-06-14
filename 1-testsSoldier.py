@@ -32,8 +32,6 @@ class TestSoldier(unittest.TestCase):
     def testReceivesDamage(self):
         self.assertEqual(callable(self.soldier.receiveDamage), True)
 
-
-"""
     def testReceivesDamageHasParams(self):
         self.assertEqual(
             len(signature(self.soldier.receiveDamage).parameters), 1)
@@ -45,6 +43,6 @@ class TestSoldier(unittest.TestCase):
         self.soldier.receiveDamage(50)
         self.assertEqual(self.soldier.health, self.health - 50)
 
-"""
+
 if __name__ == '__main__':
     unittest.main()

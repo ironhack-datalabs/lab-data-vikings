@@ -1,10 +1,12 @@
 
 # Soldier
-#vamos!
+# vamos!
+
 
 class Soldier:
-#sdf´ksdfk
-
+    def __init__(self, health, strength):
+        self.health
+        self.strength
 
 # Viking
 

@@ -1,10 +1,18 @@
-Hola Iron HAckers
-
 # Soldier
 
 
 class Soldier:
-    pass
+    def __init__(self, health, strength):
+
+        self.health = health
+        self.strength = strength
+
+    def attack(self):
+        return self.strength
+
+    def receiveDamage(self, damage):
+        self.damage = damage
+        self.health -= damage
 
 # Viking
 

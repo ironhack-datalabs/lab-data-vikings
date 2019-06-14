@@ -2,10 +2,13 @@
 # Soldier
 
 
-class Soldier:
-    pass
+class Soldier ():
 
-# Viking
+
+sddsafd
+
+
+'''# Viking
 
 
 class Viking:
@@ -21,4 +24,4 @@ class Saxon:
 
 
 class War:
-    pass
+    pass'''

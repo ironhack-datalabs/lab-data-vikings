@@ -3,7 +3,8 @@
 #vamos!
 
 class Soldier:
-    pass
+#sdf´ksdfk
+
 
 # Viking
 

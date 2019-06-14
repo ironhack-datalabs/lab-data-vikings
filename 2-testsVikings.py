@@ -48,8 +48,6 @@ class TestViking(unittest.TestCase):
         self.assertEqual(self.viking.receiveDamage(50), self.name +
                          ' has received 50 points of damage')
 
-
-"""
     def testReciveDamageShouldReturnString70(self):
         self.assertEqual(self.viking.receiveDamage(70), self.name +
                          ' has received 70 points of damage')
@@ -63,7 +61,7 @@ class TestViking(unittest.TestCase):
 
     def testBattleCryReturnString(self):
         self.assertEqual(self.viking.battleCry(), 'Odin Owns You All!')
-"""
+
 
 if __name__ == '__main__':
     unittest.main()

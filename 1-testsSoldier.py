@@ -43,6 +43,5 @@ class TestSoldier(unittest.TestCase):
         self.soldier.receiveDamage(50)
         self.assertEqual(self.soldier.health, self.health - 50)
 
-
 if __name__ == '__main__':
     unittest.main()

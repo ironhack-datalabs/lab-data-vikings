@@ -31,7 +31,7 @@ class TestSaxon(unittest.TestCase):
 
     def testReceiveDamageIsFunction(self):
         self.assertEqual(callable(self.saxon.receiveDamage), True)
-
+        
     def testReceiveDamageShouldReceiveOneParam(self):
         self.assertEqual(
             len(signature(self.saxon.receiveDamage).parameters), 1)

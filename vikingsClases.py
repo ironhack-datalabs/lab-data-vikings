@@ -1,6 +1,6 @@
 
 # Soldier
-
+#vamos!
 
 class Soldier:
     pass

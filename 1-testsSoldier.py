@@ -29,7 +29,7 @@ class TestSoldier(unittest.TestCase):
 
     def testAttackRetunsStrength(self):
         self.assertEqual(self.soldier.attack(), self.strength)
-"""
+
     def testReceivesDamage(self):
         self.assertEqual(callable(self.soldier.receiveDamage), True)
 
@@ -43,7 +43,7 @@ class TestSoldier(unittest.TestCase):
     def testCanReceiveDamage(self):
         self.soldier.receiveDamage(50)
         self.assertEqual(self.soldier.health, self.health - 50)
-"""
+
 
 if __name__ == '__main__':
     unittest.main()

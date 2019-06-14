@@ -3,7 +3,7 @@
 
 
 class Soldier:
-    pass
+    passd
 
 # Viking
 

@@ -80,6 +80,16 @@ class War:
         return vikingdamage
 
     def showStatus(self):
+
+        if len(self.saxonArmy) and len(self.vikingArmy) >= 1:
+            return "Vikings and Saxons are still in the thick of battle."
+        if len(self.saxonArmy) == 0:
+            return "Vikings have won the war of the century!"
+        else:
+            return "Saxons have fought for their lives and survive another day..."
+
+        '''
+        #ALSO WITH NESTED ITERATION
         while len(self.saxonArmy) and len(self.vikingArmy) > 0:
             return "Vikings and Saxons are still in the thick of battle."
 
@@ -88,3 +98,4 @@ class War:
                 return "Vikings have won the war of the century!"
             else:
                 return "Saxons have fought for their lives and survive another day..."
+        '''

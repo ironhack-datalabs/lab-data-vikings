@@ -260,7 +260,8 @@ When we first create a `War`, the armies should be empty. We will add soldiers t
 - should assign an empty array to the **`vikingArmy` property**
 - should assign an empty array to the **`saxonArmy` property**
 
-#### `addViking()` method
+#### `
+addViking()` method
 
 Adds 1 `Viking` to the `vikingArmy`. If you want a 10 `Viking` army, you need to call this 10 times.
 

@@ -1,5 +1,6 @@
 
 # Soldier
+import random
 
 
 class Soldier ():
@@ -50,4 +51,30 @@ class Saxon (Soldier):
         else:
             return("A Saxon has died in combat")
 
-        # War
+
+class War:
+    def __init__(self):
+        self.vikingArmy = []
+        self.saxonArmy = []
+
+    def addViking(self, viking):
+        self.vikingArmy.append(viking)
+
+    def addSaxon(self, saxon):
+        self.saxonArmy.append(saxon)
+
+    def vikingAttack(self):
+        randsaxon = random.randrange(0, len(self.saxonArmy), 1)
+        randviking = random.randrange(0, len(self.vikingArmy), 1)
+        randsaxon.receiveDamage() = randviking.attack()
+        if randsaxon.receiveDamage <= 0:
+            self.saxonArmy.remove(randsaxon)
+        return (randsaxon.receiveDamage(), randviking.attack())
+
+    def saxonAttack(self):
+        randsaxon = random.randrange(0, len(self.saxonarmy), 1)
+        randviking = random.randrange(0, len(self.vikingArmy), 1)
+        randviking.receiveDamage() = randsaxon.attack()
+        if randviking.receiveDamage <= 0:
+            self.vikingArmy.remove(randviking)
+        return (randviking.receiveDamage(), randsaxon.attack)

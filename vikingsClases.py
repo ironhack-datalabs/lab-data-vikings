@@ -47,7 +47,7 @@ class War:
         self.saxonArmy = []
 
     def addViking(self, Viking):
-        self.viking=Viking
+        self.viking = Viking
         self.vikingArmy.append(Viking)
 
     def addSaxon(self,Saxon):
@@ -55,11 +55,28 @@ class War:
         self.saxonArmy.append(Saxon)
     
     def vikingAttack(self):
-        Aleatorio= random.randint(self.vikingArmy, self.saxonArmy)
+        Aleatorio_viking = random.choice(self.vikingArmy)
+        Aleatorio_saxon = random.choice(self.saxonArmy)
+        AtaqueVikingo = Aleatorio_saxon.receiveDamage(Aleatorio_viking.attack())
+        
+        if Aleatorio_saxon.health <=0:
+            self.saxonArmy.remove(Aleatorio_saxon)
+        return AtaqueVikingo
 
-        Vikingo = Viking()
-        vikingo.strength
-        return  receiveDamage()
+    def saxonAttack(self):
+        Aleatorio_viking = random.choice(self.vikingArmy)
+        Aleatorio_saxon = random.choice(self.saxonArmy)
+        AtaqueSaxon = Aleatorio_viking.receiveDamage(Aleatorio_saxon.attack())
 
-        var vikingAttackReturn = randomSaxon.receiveDamage(randomViking.strength)
+        if Aleatorio_viking.health <= 0:
+            self.vikingArmy.remove(Aleatorio_viking)
+        
+        return AtaqueSaxon
 
+    def showStatus(self):
+        if self.saxonArmy == [] :
+            return "Vikings have won the war of the century!"
+        elif self.vikingArmy == []:
+            return "Saxons have fought for their lives and survive another day..."
+        elif self.saxonArmy != [] or self.vikingArmy != []:
+            return "Vikings and Saxons are still in the thick of battle."

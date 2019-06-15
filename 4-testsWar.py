@@ -75,7 +75,7 @@ class TestWar2(unittest.TestCase):
         oldHealt = self.saxon.health
         self.war.vikingAttack()
         self.assertEqual(self.saxon.health, oldHealt - self.viking.strength)
-'''
+
     def testVikingAttack(self):
         self.war.vikingAttack()
         self.assertEqual(len(self.war.saxonArmy), 0)
@@ -127,6 +127,6 @@ class TestWar2(unittest.TestCase):
         self.assertEqual(
             self.war.showStatus(), 'Vikings and Saxons are still in the thick of battle.')
 
-'''
+
 if __name__ == '__main__':
     unittest.main()

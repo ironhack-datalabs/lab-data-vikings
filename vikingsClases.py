@@ -64,17 +64,27 @@ class War:
         self.saxonArmy.append(saxon)
 
     def vikingAttack(self):
-        randsaxon = random.randrange(0, len(self.saxonArmy), 1)
-        randviking = random.randrange(0, len(self.vikingArmy), 1)
-        randsaxon.receiveDamage() = randviking.attack()
-        if randsaxon.receiveDamage <= 0:
+        randsaxon = random.choice(self.saxonArmy)
+        randviking = random.choice(self.vikingArmy)
+        saxondamage = randsaxon.receiveDamage(randviking.attack())
+        if randsaxon.health <= 0:
             self.saxonArmy.remove(randsaxon)
-        return (randsaxon.receiveDamage(), randviking.attack())
+        return saxondamage
 
     def saxonAttack(self):
-        randsaxon = random.randrange(0, len(self.saxonarmy), 1)
-        randviking = random.randrange(0, len(self.vikingArmy), 1)
-        randviking.receiveDamage() = randsaxon.attack()
-        if randviking.receiveDamage <= 0:
+        randsaxon = random.choice(self.saxonArmy)
+        randviking = random.choice(self.vikingArmy)
+        vikingdamage = randviking.receiveDamage(randsaxon.attack())
+        if randviking.health <= 0:
             self.vikingArmy.remove(randviking)
-        return (randviking.receiveDamage(), randsaxon.attack)
+        return vikingdamage
+
+    def showStatus(self):
+        while len(self.saxonArmy) and len(self.vikingArmy) > 0:
+            return "Vikings and Saxons are still in the thick of battle."
+
+        else:
+            if len(self.saxonArmy) == 0:
+                return "Vikings have won the war of the century!"
+            else:
+                return "Saxons have fought for their lives and survive another day..."

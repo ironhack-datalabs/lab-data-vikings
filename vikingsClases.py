@@ -50,14 +50,32 @@ class War:
         self.vikingArmy = []
         self.saxonArmy = []
 
-    def addViking(self, c):
-        self.vikingArmy.append(c)
+    def addViking(self, vikingo):
+        self.vikingArmy.append(vikingo)
 
-    def addSaxon(self, s):
-        self.saxonArmy.append(s)
+    def addSaxon(self, sajon):
+        self.saxonArmy.append(sajon)
 
     def vikingAttack(self):
-        self.c.receiveDamage = self.c.strength
+        sa = random.choice(self.saxonArmy)
+        vi = random.choice(self.vikingArmy)
+        sas = sa.receiveDamage(vi.attack())
+        if sa.health <= 0:
+            self.saxonArmy.remove(sa)
+        return sas
 
     def saxonAttack(self):
-        self.c.receiveDamage = self.c.strength
+        sa = random.choice(self.saxonArmy)
+        vi = random.choice(self.vikingArmy)
+        viv = vi.receiveDamage(sa.attack())
+        if vi.health <= 0:
+            self.vikingArmy.remove(vi)
+        return viv
+
+    def showStatus(self):
+        if len(self.saxonArmy) and len(self.vikingArmy) > 0:
+            return "Vikings and Saxons are still in the thick of battle."
+        elif self.saxonArmy == []:
+            return "Vikings have won the war of the century!"
+        elif self.vikingArmy == []:
+            return "Saxons have fought for their lives and survive another day..."

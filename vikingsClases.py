@@ -1,4 +1,4 @@
-import random
+import random as ra
 
 # Soldier
 
@@ -57,16 +57,16 @@ class War:
         self.saxonArmy.append(sajon)
 
     def vikingAttack(self):
-        sa = random.choice(self.saxonArmy)
-        vi = random.choice(self.vikingArmy)
+        sa = ra.choice(self.saxonArmy)
+        vi = ra.choice(self.vikingArmy)
         sas = sa.receiveDamage(vi.attack())
         if sa.health <= 0:
             self.saxonArmy.remove(sa)
         return sas
 
     def saxonAttack(self):
-        sa = random.choice(self.saxonArmy)
-        vi = random.choice(self.vikingArmy)
+        sa = ra.choice(self.saxonArmy)
+        vi = ra.choice(self.vikingArmy)
         viv = vi.receiveDamage(sa.attack())
         if vi.health <= 0:
             self.vikingArmy.remove(vi)

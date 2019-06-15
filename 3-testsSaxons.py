@@ -13,7 +13,7 @@ class TestSaxon(unittest.TestCase):
 
     def testSaxonShouldReceiveTwoParams(self):
         self.assertEqual(len(signature(Saxon).parameters), 2)
-'''
+
     def testHealth(self):
         self.assertEqual(self.saxon.health, self.health)
 
@@ -52,6 +52,6 @@ class TestSaxon(unittest.TestCase):
         self.assertEqual(self.saxon.receiveDamage(self.health),
                          'A Saxon has died in combat')
 
-'''
+
 if __name__ == '__main__':
     unittest.main()

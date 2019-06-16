@@ -44,7 +44,7 @@ class Saxon(Soldier):
 
 # War
 
-from random import shuffle
+from random import randint
 class War():
     def __init__(self):
         self.vikingArmy=[]
@@ -56,15 +56,15 @@ class War():
     def vikingAttack(self):
         # elegir saxon al azar
         # elegir al azar un vikingo
-        sa=self.saxonArmy[randint(0,len(self.saxonArmy)-1)
-        va=self.vikingArmy[randint(0,len(self.vikingArmy)-1)
+        sa=self.saxonArmy[randint(0,len(self.saxonArmy)-1)]
+        va=self.vikingArmy[randint(0,len(self.vikingArmy)-1)]
         string= sa.receiveDamage(va.attack())
         if "died" in string:
             self.saxonArmy.remove(sa)
         return string
     def saxonAttack(self):
-        sa=self.saxonArmy[randint(0,len(self.saxonArmy)-1)
-        va=self.vikingArmy[randint(0,len(self.vikingArmy)-1)
+        sa=self.saxonArmy[randint(0,len(self.saxonArmy)-1)]
+        va=self.vikingArmy[randint(0,len(self.vikingArmy)-1)]
         string= va.receiveDamage(sa.attack())
         if "died" in string:
             self.vikingArmy.remove(va)
@@ -76,4 +76,4 @@ class War():
         elif len(self.vikingArmy)==0:
             return "Saxons have fought for their lives and survive another day..."
         else:
-            "Vikings and Saxons are still in the thick of battle."
+            return "Vikings and Saxons are still in the thick of battle."

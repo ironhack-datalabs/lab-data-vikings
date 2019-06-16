@@ -52,6 +52,5 @@ class TestSaxon(unittest.TestCase):
         self.assertEqual(self.saxon.receiveDamage(self.health),
                          'A Saxon has died in combat')
 
-
 if __name__ == '__main__':
     unittest.main()

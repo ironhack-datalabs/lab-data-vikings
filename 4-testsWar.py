@@ -77,7 +77,6 @@ class TestWar2(unittest.TestCase):
         self.assertEqual(self.saxon.health, oldHealt - self.viking.strength)
 
     def testVikingAttack(self):
-        self.war.vikingAttack()
         self.assertEqual(len(self.war.saxonArmy), 0)
 
     def testAddSaxon(self):

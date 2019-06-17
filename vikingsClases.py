@@ -72,27 +72,23 @@ class War:
 
     def vikingAttack():
 
-        receiveDamage(strength)
-        for i in self.viking:
-            if self.health < 0:
+        vik =
+        for i in self.vikingArmy:
+            if self.vikingArmy.health <= 0:
 
             return
 
-
-'''
     def saxonAttack():
-        receive Damage
-        for i in self.saxon:
+        receive Damag
+        for i in self.saxonArmy:
             if self.health < 0:
 
             return
 
     def showStatus():
-        if saxonArmy = []:
+        if len(saxonArmy) <= 0:
             return "Vikings have won the war of the century!"
-        elif vikingArmy = []:
+        elif len(vikingArmy) <= 0:
             return "Saxons have fought for their lives and survive another day..."
         else:
             return "Vikings and Saxons are still in the thick of the battle."
-
-    a.receiveDamage()'''

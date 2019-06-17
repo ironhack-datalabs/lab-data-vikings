@@ -68,8 +68,6 @@ class TestWar2(unittest.TestCase):
     def testVikingAttackIsFunction(self):
         self.assertEqual(callable(self.war.vikingAttack), True)
 
-
-'''
     def testVikingAttackReceiveNoParam(self):
         self.assertEqual(len(signature(self.war.vikingAttack).parameters), 0)
 
@@ -129,6 +127,6 @@ class TestWar2(unittest.TestCase):
         self.assertEqual(
             self.war.showStatus(), 'Vikings and Saxons are still in the thick of battle.')
 
-'''
+
 if __name__ == '__main__':
     unittest.main()

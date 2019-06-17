@@ -49,15 +49,14 @@ class Saxon(Soldier):
         if self.health <= 0:
             return "A Saxon has died in combat"
 
-        pass
 
-
-"""
 # War
 
-
 class War:
+    def __init__(self,):
+        self.vikingArmy = []
+        self.saxonArmy = []
 
-
-pass
-"""
+    def addViking(self, viking):
+        self.viking = viking
+        self.vikingArmy.append(self.viking)

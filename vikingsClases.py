@@ -27,15 +27,15 @@ class Viking(Soldier):
         return self.strength
 
     def receiveDamage(self, damage):
-        health - damage
-        if health > damage:
-            return self.name + " has received" + self.damage + " points of damage"
-        elif healt <= damage:
-            return self.name + " has died in act of combat"
+        self.health -= damage
+        if self.health > damage:
+            return "{} has received {} points of damage".format(self.name, damage)
+        elif self.health <= damage:
+            return "{} has died in act of combat".format(self.name)
 
     def battleCry(self):
         return "Odin Owns You All!"
-        pass
+
 
 # Saxon
 
@@ -71,4 +71,3 @@ class War:
         pass
     def showStatus():
         pass
-   

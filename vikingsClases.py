@@ -1,5 +1,6 @@
 
 # Soldier
+pass
 
 
 class Soldier:

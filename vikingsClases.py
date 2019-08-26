@@ -1,8 +1,17 @@
+# # # # # # # # #      vikingsClases      # # # # # # # # # # # # # #
+# Contains classes and methods for an epic battle between Vikings   #
+# and their arch-nemeses, the Saxons.                               #
+# Create your Viking and Saxon men, summon them to war and watch    #
+# them murder each other to extinction. May the best nation win!    #
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
 
-# Soldier
+
+# Importing Libraries
 
 import random
 
+
+# Soldier
 
 class Soldier:
     def __init__(self, health, strength):

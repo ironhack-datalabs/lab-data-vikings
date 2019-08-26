@@ -47,11 +47,49 @@ class Saxon(Soldier):
         else:
             return "A Saxon has died in combat"
     
-    
-    
-
 
 # War
 
 class War:
-    pass
+    def __init__(self):
+        self.vikingArmy = []
+        self.saxonArmy = []
+        
+    def addViking(self, viking_soldier):
+        self.vikingArmy = viking_soldier + self.vikingArmy
+        
+    def addSaxon(self, saxon_soldier):
+        self.saxonArmy = saxon_soldier + self.vikingArmy
+        
+    def vikingAttack(self):
+        random_a = random.choice(self.VikingArmy)
+        random_b = random.choice(self.saxonArmy)
+        rip = random_a.receiveDamage(a.strength)
+        if b.health <= 0:
+            self.VikingArmy.pop(viking_soldier)
+        return rip
+        
+    def saxonAttack(self):
+        random_a = random.choice(self.VikingArmy)
+        random_b = random.choice(self.saxonArmy)
+        rip = random_a.receiveDamage(a.strength)
+        if b.health <= 0:
+            self.VikingArmy.pop(viking_soldier)
+        return rip
+    
+    def showStatus(self):
+        if self.saxonArmy == []:
+            return "Vikings have won the war of the century!"
+        elif self.vikingArmy == []:
+            return "Saxons have fought for their lives and survive another day..."
+        else:
+            return "Vikings and Saxons are still in the thick of battle."
+        
+        
+        
+        
+        
+        
+        
+        
+        

@@ -19,19 +19,21 @@ class Soldier:
 
 class Viking(Soldier):
     def __init__(self, name, health, strength):
+        Soldier.__init__(self, health, strength)
         self.name = name
-        self.health = health
-        self.strength = strength
+    
     
     def attack(self):
         return self.strength
 
+
     def receiveDamage(self, damage):
         self.health -= damage
-        if self.health > damage:
+        if self.health > 0:
             return "{} has received {} points of damage".format(self.name, damage)
-        elif self.health <= damage:
+        elif self.health <= 0:
             return "{} has died in act of combat".format(self.name)
+        
 
     def battleCry(self):
         return "Odin Owns You All!"
@@ -42,13 +44,22 @@ class Viking(Soldier):
 
 class Saxon(Soldier):
     def __init__(self, health, strength):
-        self.health = health
-        self.strength = strength
-    
-    def attack():
-        pass
-    def recieveDamage():
-        pass
+        Soldier.__init__(self, health, strength)
+
+
+    def attack(self):
+        return self.strength
+
+
+    def receiveDamage(self, damage):
+        self.health -= damage
+        if self.health > 0:
+            return "A Saxon has received {} points of damage".format(damage)
+        elif self.health <= 0:
+            return "A Saxon has died in combat"
+        
+
+
 
 # War
 

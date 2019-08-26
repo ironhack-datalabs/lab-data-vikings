@@ -3,7 +3,7 @@
 # and their arch-nemeses, the Saxons.                               #
 # Create your Viking and Saxon men, summon them to war and watch    #
 # them murder each other to extinction. May the best nation win!    #
-# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
 
 # Importing Libraries
@@ -29,11 +29,11 @@ class Soldier:
 
 class Viking(Soldier):
     def __init__(self, name, health, strength):
-        Soldier.__init__(self, health, strength)
+        super().__init__(health, strength)
         self.name = name
 
     def receiveDamage(self, damage):
-        self.health -= damage
+        super().receiveDamage(damage)
         if self.health <= 0:
             return '{} has died in act of combat'.format(self.name)
         else:
@@ -46,11 +46,8 @@ class Viking(Soldier):
 # Saxon
 
 class Saxon(Soldier):
-    def __init__(self, health, strength):
-        Soldier.__init__(self, health, strength)
-
     def receiveDamage(self, damage):
-        self.health -= damage
+        super().receiveDamage(damage)
         if self.health <= 0:
             return 'A Saxon has died in combat'
         else:

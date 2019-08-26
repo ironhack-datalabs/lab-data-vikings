@@ -1,7 +1,7 @@
 
 # Soldier
 
-
+print("Hola")
 class Soldier:
     pass
 

@@ -9,17 +9,31 @@ class Soldier:
 
     def attack():
         return self.strength
-    
+
     def receiveDamage(damage):
         self.health -= damage
-        
+
+
 # Viking
 
+class Viking(Soldier):
+    def __init__(self, name, health, strength):
+        self.name = 'VikingName'
+        Soldier.__init__(self, health, strength)
 
-class Viking:
-    pass
+    def receiveDamage(damage)
+      self.health -= damage
+       if self.health > 0:
+            print('{} has received {} points of damage'.format(self.name, damage))
+        elif self.health <= 0:
+            print('{} has died in act of combat'.format(self.name))
 
-# Saxon
+    def battleCry():
+
+
+
+
+    # Saxon
 
 
 class Saxon:

@@ -66,19 +66,24 @@ class Saxon(Soldier):
 
 class War:
     def __init__(self):
+        Soldier.__init__(self, health, strength)
         self.vikingArmy = []
         self.saxonArmy = []
 
 
 # War métodos
 
-    def addViking():
+    def addViking(self, Viking):
+        for i in range(1, Viking):
+            self.vikingArmyl.append(i)
+
+    def addSaxon(self, Saxon):
+        for i in range(1, Saxon):
+            self.saxonArmy.append(i)
+
+    def vikingAttack(self,):
         pass
-    def addSaxon():
+    def saxonAttack(self,):
         pass
-    def vikingAttack():
-        pass
-    def saxonAttack():
-        pass
-    def showStatus():
+    def showStatus(self,):
         pass

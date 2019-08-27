@@ -19,12 +19,7 @@ class Soldier:
 class Viking(Soldier):
     def __init__(self,name, health, strength):
         self.name=name
-        self.health=health
-        self.strength=strength
-        Soldier.__init__(self,self.health,self.strength)
-    
-    def attack(self):
-        return self.strength
+        Soldier.__init__(self,health,strength)
     
     def receiveDamage(self,damage):
         if damage>=self.health:
@@ -42,10 +37,9 @@ class Viking(Soldier):
 # Saxon
 class Saxon(Soldier):
     def __init__(self,health, strength):
-        self.health=health
-        self.strength=strength
-        Soldier.__init__(self,self.health,self.strength)
+        Soldier.__init__(self,health,strength)
     
+
     def receiveDamage(self,damage):
         if damage>=self.health:
             #self.health=0
@@ -71,31 +65,40 @@ class War:
     def vikingAttack(self):
         if (len(self.vikingArmy)>0 and len(self.saxonArmy)>0):
             chosensaxon=randrange(len(self.saxonArmy))
-            print("chosen saxon: " + str(chosensaxon))
+            #print("length of saxonArmy"+ str(len(self.saxonArmy)))
+            #print("chosen saxon: " + str(chosensaxon))
             chosenviking=randrange(len(self.vikingArmy))
-            print("chosen viking: " + str(chosenviking))
+            #print("length of vikingArmy"+ str(len(self.vikingArmy)))
+            #print("chosen viking: " + str(chosenviking))
            
             if self.vikingArmy[chosenviking].attack() >= self.saxonArmy[chosensaxon].health:
                 self.saxonArmy[chosensaxon].receiveDamage(self.vikingArmy[chosenviking].attack())
+                ResultOfAttack="A Saxon has died in combat"
                 self.saxonArmy.remove(self.saxonArmy[chosensaxon])
-                return ("A Saxon has died in combat")
+                return (ResultOfAttack)
             else:
                 self.saxonArmy[chosensaxon].receiveDamage(self.vikingArmy[chosenviking].attack())
-                return ("A Saxon has received "+ str(self.vikingArmy[chosenviking].attack()) +" points of damage")
+                ResultOfAttack="A Saxon has received "+ str(self.vikingArmy[chosenviking].attack()) +" points of damage"
+                return (ResultOfAttack)
                 
     def saxonAttack(self):
         if (len(self.vikingArmy)>0 and len(self.saxonArmy)>0):
             chosensaxon=randrange(len(self.saxonArmy))
-            print("chosen saxon: " + str(chosensaxon))
+            #print("length of saxonArmy"+ str(len(self.saxonArmy)))
+            #print("chosen saxon: " + str(chosensaxon))
             chosenviking=randrange(len(self.vikingArmy))
-            print("chosen viking: " + str(chosenviking))
+            #print("inside saxon attack, chosensaxon is:"+str(chosensaxon)+" and chosen viking is: "+str(chosenviking))
+            #print("length of vikingArmy"+ str(len(self.vikingArmy)))
+            #print("chosen viking: " + str(chosenviking))
             if (self.saxonArmy[chosensaxon].attack()>=self.vikingArmy[chosenviking].health):
                 self.vikingArmy[chosenviking].receiveDamage(self.saxonArmy[chosensaxon].attack())
+                ResultOfAttack=self.vikingArmy[chosenviking].name  + " has died in act of combat"
                 self.vikingArmy.remove(self.vikingArmy[chosenviking])
-                return (self.vikingArmy[chosenviking].name  + " has died in act of combat")
+                return ResultOfAttack
             else:
                 self.vikingArmy[chosenviking].receiveDamage(self.saxonArmy[chosensaxon].attack())
-                return (self.vikingArmy[chosenviking].name + " has received "+str(self.saxonArmy[chosensaxon].attack())+" points of damage")
+                ResultOfAttack=self.vikingArmy[chosenviking].name + " has received "+str(self.saxonArmy[chosensaxon].attack())+" points of damage"
+                return (ResultOfAttack)
 
     def showStatus(self):
         if(len(self.saxonArmy)==0):

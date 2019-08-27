@@ -52,7 +52,7 @@ class Saxon(Soldier):
 
 class War:
 
-    def __innit__(self):
+    def __init__(self):
         self.vikingArmy = []
         self.saxonArmy = []
 

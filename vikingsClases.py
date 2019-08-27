@@ -11,12 +11,13 @@ class Soldier:
         return self.strength
 
     def receiveDamage(self,damage):
-        self.health -= damage
-        
-            
+        if damage > 0:
+            self.health -= damage
+    
+
 class Viking(Soldier):
     def __init__(self, name, health, strength):
-        super().__init__(health, strength)
+        super(Viking, self).__init__(health, strength)
         self.name = name
 
     def receiveDamage(self, damage):
@@ -56,10 +57,6 @@ class War():
 
         viking1=random.choice(self.vikingArmy)
         saxon1=random.choice(self.saxonArmy)
-        #random_viking = choice(self.vikingArmy)
-        #random_saxon = choice(self.saxonArmy)
-        #result = random_saxon.receiveDamage(random.viking.attack())
-        #return result
         scoreWar=saxon1.receiveDamage(viking1.strength)
         if saxon1.health <=0:
             self.saxonArmy.remove(saxon1)
@@ -80,9 +77,9 @@ class War():
 
         if len(self.saxonArmy) == 0:
             return "Vikings have won the war of the century!"
-        elif len(self.vikingArmy) == 0:
+        if len(self.vikingArmy) == 0:
             return "Saxons have fought for their lives and survive another day..."
-        else len(self.saxonArmy) != 0 and len(self.vikingArmy) != 0:
+        if len(self.saxonArmy) != 0 and len(self.vikingArmy) != 0:
             return "Vikings and Saxons are still in the thick of battle."
 
 

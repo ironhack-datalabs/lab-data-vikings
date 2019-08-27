@@ -17,31 +17,32 @@ class Soldier:
 
 
 class Viking(Soldier):
+    #Aquí si hacemos init porque los parámetros de entrada cambian al poner name
     def __init__(self, name, health, strength):
+        #Soldier.__init__(self,health,strength)
+        super().__init__(health,strength)
         self.name = name
-        self.health = health
-        self.strength = strength
 
     def receiveDamage(self,damage):
-        self.health -= damage
+        super().receiveDamage(damage)
         if self.health > 0:
-            return self.name + " has received "+ str(damage) +" points of damage"
+            return "{} has received {} points of damage".format(self.name,damage)
         else:
-            return self.name + " has died in act of combat"
+            return "{} has died in act of combat".format(self.name)
 
     def battleCry(self):
         return "Odin Owns You All!"
 
 # Saxon
 class Saxon(Soldier):
-    def __init__(self, health, strength):
-        self.health = health
-        self.strength = strength
+    #No hace falta hacer el init porque lo hereda directamente
+    #def __init__(self, health, strength):
+        #super().__init__(health,strength)
     
     def receiveDamage(self, damage):
-        self.health -= damage
+        super().receiveDamage(damage)
         if self.health > 0:
-            return "A Saxon has received " + str(damage) + " points of damage"
+            return "A Saxon has received {} points of damage".format(damage)
         else:
             return "A Saxon has died in combat"
 
@@ -63,14 +64,19 @@ class War:
     def vikingAttack(self):
         viking = random.choice(self.vikingArmy)
         saxon = random.choice(self.saxonArmy)
-        fight = saxon.receiveDamage(viking.strength)
-        [self.saxonArmy.remove(sax) for sax in self.saxonArmy if sax.health <= 0]
+        fight = saxon.receiveDamage(viking.attack())
+
+        #[self.saxonArmy.remove(sax) for sax in self.saxonArmy if sax.health <= 0]
+        # Se puede hacer de las dos formas, pero en el list comprehension recorres toda la lista
+        #  y en el if solo quitas al soldado elegido en el momento
+        if saxon.health <= 0:
+            self.saxonArmy.remove(saxon)
         return fight
 
     def saxonAttack(self):
         viking = random.choice(self.vikingArmy)
         saxon = random.choice(self.saxonArmy)
-        fight = viking.receiveDamage(saxon.strength)
+        fight = viking.receiveDamage(saxon.attack())
         [self.vikingArmy.remove(vik) for vik in self.vikingArmy if vik.health <= 0]
         return fight
 

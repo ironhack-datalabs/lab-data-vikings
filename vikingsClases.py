@@ -50,32 +50,34 @@ class Saxon(Soldier):
 
 # War
 
+import random
+
 class War:
     def __init__(self):
         self.vikingArmy = []
         self.saxonArmy = []
         
     def addViking(self, viking_soldier):
-        self.vikingArmy = viking_soldier + self.vikingArmy
+        self.vikingArmy.append(viking_soldier)
         
     def addSaxon(self, saxon_soldier):
-        self.saxonArmy = saxon_soldier + self.vikingArmy
+        self.saxonArmy.append(saxon_soldier)
         
     def vikingAttack(self):
-        random_a = random.choice(self.VikingArmy)
-        random_b = random.choice(self.saxonArmy)
-        rip = random_a.receiveDamage(a.strength)
-        if b.health <= 0:
-            self.VikingArmy.pop(viking_soldier)
-        return rip
+        random_vkg = random.choice(self.vikingArmy)
+        random_sxn = random.choice(self.saxonArmy)
+        vrd = random_sxn.receiveDamage(random_vkg.strength)
+        if random_sxn.health <= 0:
+            self.saxonArmy.remove(random_sxn)
+        return vrd
         
     def saxonAttack(self):
-        random_a = random.choice(self.VikingArmy)
-        random_b = random.choice(self.saxonArmy)
-        rip = random_a.receiveDamage(a.strength)
-        if b.health <= 0:
-            self.VikingArmy.pop(viking_soldier)
-        return rip
+        random_vkg = random.choice(self.vikingArmy)
+        random_sxn = random.choice(self.saxonArmy)
+        srd = random_vkg.receiveDamage(random_sxn.strength)
+        if random_vkg.health <= 0:
+            self.vikingArmy.remove(random_vkg)
+        return srd
     
     def showStatus(self):
         if self.saxonArmy == []:

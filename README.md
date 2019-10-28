@@ -14,7 +14,7 @@ You will find the following files in the folder of this laboratory:
 - `tests.py`
 
 You are free to use any of the code editors you have to open these files.
-
+##
 ### Challenge Question
 
 Modify the file `vikingsClases.py` so that all the tests are correct.

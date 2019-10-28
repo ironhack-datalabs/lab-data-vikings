@@ -9,18 +9,18 @@ batalla.addViking(Viking('El Rober', 78, 160))
 batalla.addSaxon(Saxon(89, 178))
 batalla.addSaxon(Saxon(98, 189))
 batalla.addSaxon(Saxon(88, 176))
-ataque1 = batalla.vikingAttack()
-ataque2 = batalla.saxonAttack()
+ataque1 = batalla.vikingAttack
+ataque2 = batalla.saxonAttack
 lista=[ataque1,ataque2]
 
-#no consigo evitar que este loop sea infinito!!
+#imposible más aleatoriedad...
 while True:
-    random.choice(lista)
+    random.choice(lista)()
+    print(batalla.showStatus())
     if len(batalla.vikingArmy) == 0 or len(batalla.saxonArmy) == 0:
         break
-    print(batalla.showStatus())
 
-#con este loop sí que se resuelve
+#los vikingos siempre empiezan
 '''while True:
     batalla.vikingAttack()
     print(batalla.showStatus())

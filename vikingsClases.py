@@ -1,5 +1,5 @@
 # Soldier
-
+import random
 
 class Soldier:
     def __init__(self,health,strength):
@@ -29,43 +29,6 @@ class Viking(Soldier):
         return "Odin Owns You All!"
 
 
-'''
-Saxon
-
-A Saxon is a weaker kind of Soldier. Unlike a Viking, a Saxon has no name. Their receiveDamage() method will also be different than the original Soldier version.
-
-Modify the Saxon, constructor function, have it inherit from Soldier and reimplement the receiveDamage() method for Saxon.
-inheritance
-
-    Saxon should inherit from Soldier
-
-constructor function
-
-    should receive 2 arguments (health & strength)
-    should receive the health property as its 1st argument
-    should receive the strength property as its 2nd argument
-
-attack() method
-
-(This method should be inherited from Soldier, no need to reimplement it.)
-
-    should be a function
-    should receive 0 arguments
-    should return the strength property of the Saxon
-
-receiveDamage() method
-
-(This method needs to be reimplemented for Saxon because the Saxon version needs to have different return values.)
-
-    should be a function
-    should receive 1 argument (the damage)
-    should remove the received damage from the health property
-    if the Saxon is still alive, it should return "A Saxon has received DAMAGE points of damage"
-    if the Saxon dies, it should return "A Saxon has died in combat"
-
-
-
-'''
 
 
 # Saxon
@@ -87,21 +50,40 @@ class Saxon(Soldier):
 # War
 
 
-class War:
-    def __init__(self,war):
-        self.war = war
-        vikingArmy=[]
-        saxonArmy=[]
+class War():
+    def __init__(self):
+        self.vikingArmy=[]
+        self.saxonArmy=[]
 
-    def addViking(self):
+    def addViking(Viking):
         vikingArmy.append(Viking)
     
-    def addSaxon(self):
+    def addSaxon(Saxon):
         saxonArmy.append(Saxon)
 
-    def vikingAttack(self):
-        saxonArmy[]
-        Saxon.receiveDamage(Saxon,damage)
+    def vikingAttack(viking):
+        sxn=random.choice(saxonArmy)
+        vkg=random.choice(vikingArmy)
+        receiveDamage(sxn,Damage=vkg.strngth)
+        if sxn.health<0:
+            saxonArmy.remove(sxn)
+        return receiveDamage(sxn,Damage=vkg.strngth)
+    
+    def saxonAttack(viking):
+        vkg=random.choice(vikingArmy)
+        sxn=random.choice(saxonArmy)
+        if vkg.health<0:
+            vikingArmy.remove(vkg)
+        return receiveDamage(vkg,Damage=sxn.strngth)
+    
+    def showStatus(war):
+        if saxonArmy==[]:
+            return "Saxons have fought for their lives and survive another day..."
+        elif vikingArmy==[]:
+            return "Vikings and Saxons are still in the thick of battle."
+        else:
+            return "Vikings and Saxons are still in the thick of battle.."
+
 
     '''
 #### `vikingAttack()` method

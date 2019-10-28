@@ -6,6 +6,7 @@ The Vikings and the Saxons are at War. Both are Soldiers but they have their own
 
 In this laboratory you will work with the concept of inheritance in Python.
 
+
 ### Getting Started
 
 You will find the following files in the folder of this laboratory:

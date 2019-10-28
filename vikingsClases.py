@@ -52,7 +52,7 @@ class Saxon(Soldier):
 # War
 
 
-class War(Saxon, Viking, Soldier):
+class War(Soldier):
     def __init__(self):
         self.vikingArmy = []
         self.saxonArmy = []
@@ -64,12 +64,22 @@ class War(Saxon, Viking, Soldier):
         self.saxonArmy.append(Saxon)
 
     def vikingAttack(self):
-        random.choice(self.vikingArmy)
-        super().receiveDamage(super(Soldier).attack())
+        ran_sax = random.choice(self.saxonArmy)
+        ran_vik = random.choice(self.vikingArmy)
+        vik_att = ran_vik.attack()
+        dam_sax = ran_sax.receiveDamage(vik_att)
+        if 0 >= ran_sax.health:
+            self.saxonArmy.remove(ran_sax)
+        return dam_sax
 
     def saxonAttack(self):
-        random.choice(self.saxonArmy)
-        super().receiveDamage(super(Soldier).attack())
+        ran_sax = random.choice(self.saxonArmy)
+        ran_vik = random.choice(self.vikingArmy)
+        san_att = ran_sax.attack()
+        dam_vik = ran_vik.receiveDamage(san_att)
+        if 0 >= ran_vik.health:
+            self.vikingArmy.remove(ran_vik)
+        return dam_vik
 
     def showStatus(self):
         if self.saxonArmy == []:

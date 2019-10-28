@@ -5,6 +5,8 @@
 class Soldier:
     pass
 
+
+d
 # Viking
 
 

@@ -21,13 +21,17 @@ for x in range(s + 1):
     guerra.addSaxon(Saxona)
 
 
-while True:
-    guerra.vikingAttack()
-    if guerra.vikingArmy == 0 or guerra.saxonArmy == 0:
-        print(guerra.showStatus())
-        break
-    guerra.saxonAttack()
-    if guerra.vikingArmy == 0 or guerra.saxonArmy == 0:
-        print(guerra.showStatus())
+status = "Vikings and Saxons are still in the thick of battle."
+while status == "Vikings and Saxons are still in the thick of battle.":
+    print("Hala Real Madrid al Ataque!!!")
+    print(guerra.vikingAttack())
+    status = guerra.showStatus()
+    print(status)
+    if status == "Vikings and Saxons are still in the thick of battle.":
+        print("Lomo de Sajonia al poder!!!")
+        print(guerra.saxonAttack())
+        status = guerra.showStatus()
+        print(status)
+    else:
         break
 

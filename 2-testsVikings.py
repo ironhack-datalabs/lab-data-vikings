@@ -4,10 +4,9 @@ from inspect import signature
 
 
 class TestViking(unittest.TestCase):
-
     @classmethod
     def setUp(cls):
-        cls.name = 'Harald'
+        cls.name = "Harald"
         cls.strength = 150
         cls.health = 300
         cls.viking = Viking(cls.name, cls.health, cls.strength)
@@ -37,31 +36,36 @@ class TestViking(unittest.TestCase):
         self.assertEqual(callable(self.viking.receiveDamage), True)
 
     def testReceiveDamageReciveOneParam(self):
-        self.assertEqual(
-            len(signature(self.viking.receiveDamage).parameters), 1)
+        self.assertEqual(len(signature(self.viking.receiveDamage).parameters), 1)
 
     def testReciveDamageShouldRestHealth(self):
         self.viking.receiveDamage(50)
         self.assertEqual(self.viking.health, self.health - 50)
 
     def testReciveDamageShouldReturnString50(self):
-        self.assertEqual(self.viking.receiveDamage(50), self.name +
-                         ' has received 50 points of damage')
+        self.assertEqual(
+            self.viking.receiveDamage(50),
+            self.name + " has received 50 points of damage",
+        )
 
     def testReciveDamageShouldReturnString70(self):
-        self.assertEqual(self.viking.receiveDamage(70), self.name +
-                         ' has received 70 points of damage')
+        self.assertEqual(
+            self.viking.receiveDamage(70),
+            self.name + " has received 70 points of damage",
+        )
 
     def testReceiveDamageShouldReturnStringDeath(self):
-        self.assertEqual(self.viking.receiveDamage(self.health),
-                         self.name + ' has died in act of combat')
+        self.assertEqual(
+            self.viking.receiveDamage(self.health),
+            self.name + " has died in act of combat",
+        )
 
     def testBattleCry(self):
         self.assertEqual(callable(self.viking.battleCry), True)
 
     def testBattleCryReturnString(self):
-        self.assertEqual(self.viking.battleCry(), 'Odin Owns You All!')
+        self.assertEqual(self.viking.battleCry(), "Odin Owns You All!")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

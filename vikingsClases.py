@@ -46,29 +46,31 @@ class Saxon(Soldier):
 
 # War
 
-
-class War():
+import random
+class War:
     def __init__(self):
-        vikingArmy=[]
-        saxonArmy=[]
-    def addViking(Viking):
-        vikingArmy.append(Viking)
-    def addSaxon(Saxon):
-        saxonArmy.append(Saxon)
-    def vikingAttack():
-        receiveDamage(Saxon,Viking.strength)
-        for s in saxonArmy:
-            if s.health<=0:
-                saxonArmy.pop(s)
-    def saxonAttack():
-        receiveDamage(Viking,Saxon.strength)
-        for v in vikingArmy:
-            if v.health<=0:
-                vikingArmy.pop(v
-    def showStatus():
-        if len(saxonArmy)! :
+        self.vikingArmy=[]
+        self.saxonArmy=[]
+    def addViking(self,viking):
+        self.vikingArmy.append(viking)
+    def addSaxon(self,saxon):
+        self.saxonArmy.append(saxon)
+    def vikingAttack(self):
+        vikingo=random.choice(self.vikingArmy)
+        sa=random.choice(self.saxonArmy)
+        strength_of_viking=sa.receiveDamage(vikingo.attack())
+        self.saxonArmy=[s for s in self.saxonArmy if s.health>0]
+        return strength_of_viking
+    def saxonAttack(self):
+        saxo=random.choice(self.saxonArmy)
+        vik=random.choice(self.vikingArmy)
+        strength_of_saxon=vik.receiveDamage(saxo.attack())
+        self.vikingArmy=[v for v in self.vikingArmy if v.health>0] 
+        return strength_of_saxon
+    def showStatus(self):
+        if (len(self.saxonArmy))==0 :
             return "Vikings have won the war of the century!"
-        elif len(vikingArmy)!:
+        elif (len(self.vikingArmy))==0:
             return "Saxons have fought for their lives and survive another day..."
         else:
             return "Vikings and Saxons are still in the thick of battle."

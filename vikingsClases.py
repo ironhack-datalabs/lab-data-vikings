@@ -34,8 +34,17 @@ class Viking(Soldier):
 # Saxon
 
 
-class Saxon:
-    pass
+class Saxon(Soldier):
+# como Soldier ya tiene health como 1er agrumento y strength como 2º, simplemente 
+# importando Soldier ya tengo lo que me piden
+# tampoco hace falta reimplementar attack
+# 
+    def receiveDamage(self, damage):
+        super().receiveDamage(damage)
+        if self.health>0:
+            return "A Saxon has received {} points of damage".format(damage)
+        else:
+            return "A Saxon has died in combat"
 
 # War
 

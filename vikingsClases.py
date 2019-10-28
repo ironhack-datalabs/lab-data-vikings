@@ -23,7 +23,7 @@ class Viking(Soldier):
         self.name = name
 
     def receiveDamage(self, damage):
-        self.health = self.health - damage
+        super().receiveDamage(damage)
         if self.health > 0:
             return "{} has received {} points of damage".format(
                 self.name, damage)
@@ -42,7 +42,7 @@ class Saxon(Soldier):
         super().__init__(health, strength)
 
     def receiveDamage(self, damage):
-        self.health = self.health - damage
+        super().receiveDamage(damage)
         if self.health > 0:
             return "A Saxon has received {} points of damage".format(damage)
         elif self.health <= 0:

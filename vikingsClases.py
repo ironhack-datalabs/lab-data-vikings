@@ -1,7 +1,6 @@
 
 # Soldier
-
-
+piefnjkvnasldvnk
 class Soldier:
     pass
 

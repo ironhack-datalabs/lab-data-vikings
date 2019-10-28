@@ -90,5 +90,42 @@ class Saxon(Soldier):
 class War:
     def __init__(self,war):
         self.war = war
-        
+        vikingArmy=[]
+        saxonArmy=[]
+
+    def addViking(self):
+        vikingArmy.append(Viking)
+    
+    def addSaxon(self):
+        saxonArmy.append(Saxon)
+
+    def vikingAttack(self):
+        saxonArmy[]
+        Saxon.receiveDamage(Saxon,damage)
+
+    '''
+#### `vikingAttack()` method
+
+A `Saxon` (chosen at random) has their `receiveDamage()` method called with the damage equal to the `strength` of a `Viking` (also chosen at random). 
+This should only perform a single attack and the `Saxon` doesn't get to attack back.
+
+- should be a function
+- should receive **0 arguments**
+- should make a `Saxon` `receiveDamage()` equal to the `strength` of a `Viking`
+- should remove dead saxons from the army
+- should return **result of calling `receiveDamage()` of a `Saxon`** with the `strength` of a `Viking`
+
+#### `saxonAttack()` method
+
+The `Saxon` version of `vikingAttack()`. A `Viking` receives the damage equal to the `strength` of a `Saxon`.
+
+- should be a function
+- should receive **0 arguments**
+- should make a `Viking` `receiveDamage()` equal to the `strength` of a `Saxon`
+- should remove dead vikings from the army
+- should return **result of calling `receiveDamage()` of a `Viking`** with the `strength` of a `Saxon`
+    '''
+
+
+
     pass

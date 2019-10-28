@@ -61,16 +61,22 @@ class War():
         self.saxonArmy.append(Saxon)
 
     def vikingAttack(self):
-        Saxon.receiveDamage(Viking.strength)
-        if Saxon.health <= 0:
-            self.saxonArmy.pop()
-        return receiveDamage() + print(Viking.strength)
+        import random
+        k = random.choice(self.vikingArmy)
+        s = random.choice(self.saxonArmy)
+        attack_viking = s.receiveDamage(k.attack())
+        self.saxonArmy = [
+            saxon for saxon in self.saxonArmy if saxon.health > 0]
+        return attack_viking
 
     def saxonAttack(self):
-        Viking.receiveDamage(Saxon.strength)
-        if Viking.health <= 0:
-            self.vikingArmy.pop()
-        return receiveDamage() + print(Saxon.strength)
+        import random
+        v = random.choice(self.vikingArmy)
+        j = random.choice(self.saxonArmy)
+        attack_saxon = v.receiveDamage(j.attack())
+        self.vikingArmy = [
+            vikingo for vikingo in self.vikingArmy if vikingo.health > 0]
+        return attack_saxon
 
     def showStatus(self):
         if len(self.saxonArmy) == 0:

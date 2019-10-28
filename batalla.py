@@ -20,18 +20,37 @@ for a in range(v + 1):
 for x in range(s + 1):
     guerra.addSaxon(Saxona)
 
+lista = [1, 2]
 
-status = "Vikings and Saxons are still in the thick of battle."
-while status == "Vikings and Saxons are still in the thick of battle.":
-    print("Hala Real Madrid al Ataque!!!")
-    print(guerra.vikingAttack())
-    status = guerra.showStatus()
-    print(status)
-    if status == "Vikings and Saxons are still in the thick of battle.":
-        print("Lomo de Sajonia al poder!!!")
-        print(guerra.saxonAttack())
+resultado = random.choice(lista)
+
+if resultado == 1:
+
+    status = "Vikings and Saxons are still in the thick of battle."
+    while status == "Vikings and Saxons are still in the thick of battle.":
+        print("Hala Real Madrid al Ataque!!!")
+        print(guerra.vikingAttack())
         status = guerra.showStatus()
         print(status)
-    else:
-        break
+        if status == "Vikings and Saxons are still in the thick of battle.":
+            print("Lomo de Sajonia al poder!!!")
+            print(guerra.saxonAttack())
+            status = guerra.showStatus()
+            print(status)
+        else:
+            break
+
+else:
+    status = "Vikings and Saxons are still in the thick of battle."
+    while status == "Vikings and Saxons are still in the thick of battle.":
+        print("Saxon Attack!:")
+        print(Guerra.saxonAttack())
+        status = Guerra.showStatus()
+        print(status)
+        if status == "Vikings and Saxons are still in the thick of battle.":
+            print("Viking Attack!:")
+            print(Guerra.vikingAttack())
+            status = Guerra.showStatus()
+        else:
+            break
 

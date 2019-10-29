@@ -55,11 +55,11 @@ class War():
         self.vikingArmy=[]
         self.saxonArmy=[]
 
-    def addViking(Viking):
-        vikingArmy.append(Viking)
+    def addViking(self, Viking):
+        self.vikingArmy.append(Viking)
     
-    def addSaxon(Saxon):
-        saxonArmy.append(Saxon)
+    def addSaxon(self,Saxon):
+        self.saxonArmy.append(Saxon)
 
     def vikingAttack(viking):
         sxn=random.choice(saxonArmy)

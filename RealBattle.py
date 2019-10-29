@@ -80,10 +80,10 @@ class War:
 
     def showSurvivors(self):
         if len(self.saxonArmy):
-            print("The survivors are:",*[s.name for s in self.saxonArmy])
+            print("The saxon survivors are:",*[s.name for s in self.saxonArmy])
             random.choice(self.saxonArmy).battleCry()
-        elif len(self.vikingArmy):
-            print("The survivors are:",*[v.name for v in self.vikingArmy])
+        if len(self.vikingArmy):
+            print("The viking survivors are:",*[v.name for v in self.vikingArmy])
 
     
 

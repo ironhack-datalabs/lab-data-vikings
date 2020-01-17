@@ -3,6 +3,7 @@
 
 
 class Soldier:
+    "hola"
     pass
 
 # Viking

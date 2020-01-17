@@ -22,6 +22,9 @@ class Viking(Soldier):
 
     #attack se hereda automaticamente
 
+    def __repr__(self):
+        return "["+self.name+"] "+"HP: "+str(self.health)+" AT: "+str(self.strength)
+
     def receiveDamage(self, damage):
         super().receiveDamage(damage)
         if(self.health > 0):
@@ -40,6 +43,8 @@ class Saxon(Soldier):
         super().__init__(health, strength)
     
     #attack se hereda automaticamente
+    def __repr__(self):
+        return "[un saxon] "+"HP: "+str(self.health)+" AT: "+str(self.strength)
 
     def receiveDamage(self, damage):
         super().receiveDamage(damage)

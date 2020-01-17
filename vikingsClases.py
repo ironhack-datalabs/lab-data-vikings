@@ -89,7 +89,7 @@ class War:
 
     def showStatus(self):
         return "Vikings have won the war of the century!" if len(self.saxonArmy) == 0 \
-            else "Saxons have fought for their lives and survive another day.." \
+            else "Saxons have fought for their lives and survive another day..." \
             if len(self.vikingArmy) == 0 else "Vikings and Saxons are still in the thick of battle."
 
     def __repr__(self):

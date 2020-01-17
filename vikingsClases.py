@@ -37,7 +37,6 @@ class Saxon(Soldier):
             return "A Saxon has received "+str(damage)+" points of damage"
         else:
             return "A Saxon has died in combat"
-
 # War   
 class War:
     
@@ -55,7 +54,7 @@ class War:
         saxon_atacado2 = saxon_atacado.receiveDamage(strength_viking)
         if saxon_atacado2 == "A Saxon has died in combat" :
             self.saxonArmy.remove(saxon_atacado)
-        return saxon_atacado
+        return saxon_atacado2
     def saxonAttack(self):
         saxon_attack = random.choice(self.saxonArmy)
         strength_saxon = saxon_attack.attack()
@@ -63,9 +62,9 @@ class War:
         viking_atacado2 = viking_atacado.receiveDamage(strength_saxon)
         if "has died in act of combat"  in viking_atacado2 :
             self.vikingArmy.remove(viking_atacado)
-        return viking_atacado
+        return viking_atacado2
     def showStatus(self):
-        if len(self.saxonsArmy) == 0:
+        if len(self.saxonArmy) == 0:
             return "Vikings have won the war of the century!"
         elif len(self.vikingArmy) == 0:
             return "Saxons have fought for their lives and survive another day..."

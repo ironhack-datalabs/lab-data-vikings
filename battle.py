@@ -9,7 +9,7 @@ vikingos = ["Ragnar", "Lagertha", "Ivar", "Björn", "Ubbe", "Hvitserk", "Alaug",
 guerra = War()
 
 def createVikingArmy():
-    vikings = [Viking(random.sample(vikingos, 1), int(random.random()*100), int(random.random()*100)) for e in range(10)]
+    vikings = [Viking(vikingos[e], int(random.random()*100), int(random.random()*100)) for e in range(10)]
     [guerra.addViking(e) for e in vikings]
 def createSaxonArmy():
     saxons = [Saxon(int(random.random()*100), int(random.random()*100)) for e in range(10)]

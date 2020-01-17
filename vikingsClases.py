@@ -3,16 +3,16 @@
 
 
 class Soldier:
-    
-    def __init__(self, health, strengh):
+    def __init__(self, health, strength):
         self.health = health
-        self.strengh = strengh
+        self.strength = strength
 
     def attack(self):
-        return self.strengh
+        return self.strength
     
     def receiveDamage(self, damage):
-        self.health - damage
+        self.health -= damage
+        
         
 
 
@@ -21,27 +21,31 @@ class Soldier:
 
 class Viking(Soldier):
 
-    def __init__(self, name, health, strengh):
+    def __init__(self, name, health, strength):
         self.name = name
-        super().__init__(health, strengh)
+        super().__init__(health, strength)
     
     def attack(self):
-        super().attack()
+        return super().attack()
 
     def receiveDamage(self, damage):
         self.health -= damage
         
         if self.health > 0:
-            return "Viking has recived " + str(damage) + " points of damage."
+            return self.name + " has received " + str(damage) + " points of damage"
         else:
-            return "Viking has died in act of combat."
-
+            return self.name + " has died in act of combat"
+    
+    def battleCry(self):
+        return "Odin Owns You All!"
 
 # Saxon
 
 
-class Saxon:
-    pass
+class Saxon(Soldier):
+    
+    def __init__(self, health, strength):
+        super().__init__(health, strength)
 
 # War
 

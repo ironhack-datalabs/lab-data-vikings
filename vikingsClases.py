@@ -96,6 +96,8 @@ class War:
         return f"vikingArmy: {len(self.vikingArmy)} \nsaxonArmy: {len(self.saxonArmy)}"
 
 """
+#Creo que esto es una Batalla muy simple
+
 war = War()
 war.addSaxon(Saxon(5, 5))
 war.addViking(Viking("Messi", 6, 6))

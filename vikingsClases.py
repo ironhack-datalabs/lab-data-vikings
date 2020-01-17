@@ -6,7 +6,7 @@ class Soldier:
     pass
 
 # Viking
-
+ 
 
 class Viking:
     pass

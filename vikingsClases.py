@@ -38,11 +38,32 @@ class Viking(Soldier):
 # Saxon
 
 
-class Saxon:
-    pass
+class Saxon(Soldier):
+    def __init__(self, health, strength):
+        super().__init__(health, strength)
+
+    def attack(self):
+        return super().attack()
+
+    def receiveDamage(self, damage):
+        self.health -= damage
+        if self.health > 0:
+            return "A Saxon has received " + str(damage) + " points of damage"
+        else:
+            return "A Saxon has died in combat"
+
 
 # War
+'''class War:
+    def __init__(self):
+        self.vikingArmy = []
+        self.saxonArmy = []
 
+    def addViking(self, viking == 1):
+        self.vikingArmy.append(viking)
 
-class War:
-    pass
+    def addSaxon(self, saxon == 1):
+        self.saxonArmy.append(saxon)
+
+    def vikingAttack()
+'''

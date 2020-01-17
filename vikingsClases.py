@@ -2,6 +2,7 @@
 # Soldier
 
 
+
 class Soldier:
     pass
 

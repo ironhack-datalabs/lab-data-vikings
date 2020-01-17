@@ -37,15 +37,37 @@ class Viking(Soldier):
         return 'Odin Owns You All!'
 
 
-
 # Saxon
 
 
-class Saxon:
+class Saxon(Soldier):
+    def __init__(self, health, strength):
+        super().__init__(health, strength)
+
+    def receiveDamage(self, damage):
+        super().receiveDamage(damage)
+        if self.health > 0: 
+            return "".join(["A Saxon has received ",str(damage)," points of damage"])
+        else:
+            return "A Saxon has died in combat"
+
     pass
 
 # War
 
 
 class War:
+    def __init__(self):
+        self.vikingArmy = []
+        self.saxonArmy = []
+    
+    def addViking(Viking):
+        self.vikingArmy.append(Viking)
+    
+    def addSaxon(Saxon):
+        self.saxonArmy.append(Saxon)
+        
+    def vikingAttack()
+    def saxonAttack()
+    def showStatus()    
     pass

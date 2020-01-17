@@ -11,7 +11,7 @@ nombres_vikingos = ['Aren','Axe','Bjorn','Daven','Egil','Einar','Erik','Esben','
 def askArmySize():
     while True:
         try:
-            tam = int(input("How many soldiers will fight? -> "))
+            tam = int(input("How many soldiers will fight for each army? -> "))
             return tam
         except:
             print('invalid value. try again')
@@ -43,12 +43,16 @@ def battle(g,turno):
             turno="s"
         print(g)
         print(g.showStatus())
+        try:
+            input("Press enter to continue")
+        except SyntaxError:
+            pass
 
 guerra = War()
 
 n = askArmySize()
 generateArmies(guerra,n)
-print("Armies are:",guerra)
+print(guerra)
 emp = askWhichOneStarts()
 if emp == "s":
     print("Saxons will start the war")
@@ -57,7 +61,7 @@ else:
 
 battle(guerra,emp)
 
+guerra.heroesOfWar()
 
-#print(guerra)
 
 

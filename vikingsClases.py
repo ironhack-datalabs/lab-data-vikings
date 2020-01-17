@@ -8,11 +8,14 @@ class Soldier:
         self.health = health
         self.strengh = strengh
 
-    def attack():
-        return strengh
+    def attack(self):
+        return self.strengh
     
-    def receiveDamage():
-        pass
+    def receiveDamage(self, damage):
+        return self.health - damage
+        
+
+
 # Viking
 
 

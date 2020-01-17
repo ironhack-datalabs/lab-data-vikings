@@ -4,7 +4,7 @@ from vikingsClases import Viking
 from vikingsClases import Saxon
 
 
-vikingos = ["Ragnar", "Ladgerda", "Ivar", "Björn", "Ubbe", "Hvitserk", "Alaug", "Sigurd", "Floki", "Rollo"]
+vikingos = ["Ragnar", "Lagertha", "Ivar", "Björn", "Ubbe", "Hvitserk", "Alaug", "Sigurd", "Floki", "Rollo"]
 
 guerra = War()
 

@@ -27,8 +27,7 @@ class Viking(Soldier):
         return super().attack()
 
     def receiveDamage(self, damage):
-        self.health -= damage
-        print(self)
+        super().attack()
         return f"{self.name} has received {damage} points of damage" \
             if int(self.health) > 0 else f"{self.name} has died in act of combat"
 
@@ -49,7 +48,7 @@ class Saxon(Soldier):
         return super().attack()
 
     def receiveDamage(self, damage):
-        self.health -= damage
+        super().attack()
         return f"A Saxon has received {damage} points of damage" if self.health > 0 else f"A Saxon has died in combat"
 
     def __repr__(self):

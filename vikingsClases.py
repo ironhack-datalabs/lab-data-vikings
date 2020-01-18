@@ -1,3 +1,4 @@
+import random
 
 # Soldier
 
@@ -50,27 +51,32 @@ class Saxon(Soldier):
 
 # War
 
-class War:
+class War():
     def __init__(self):
         self.vikingArmy = []
         self.saxonArmy = []
-
-    def addViking(self,viking):
-        self.vikingArmy.append(viking)
-    
-    def addSaxon(self,saxon):
-        self.saxonArmy.append(saxon)
-
+    def addViking(self, Viking):
+        self.vikingArmy.append(Viking)
+    def addSaxon(self,Saxon):
+        self.saxonArmy.append(Saxon)
     def vikingAttack(self):
-        pass
-
+        randomViking = random.randint(0,len(self.vikingArmy) - 1)
+        randomSaxon = random.randint(0, len(self.saxonArmy) - 1)
+        confrontation = self.saxonArmy[randomSaxon].receiveDamage(self.vikingArmy[randomViking].attack())
+        if confrontation == "A Saxon has died in combat":
+            self.saxonArmy.remove(self.saxonArmy[randomSaxon])
+        return confrontation
     def saxonAttack(self):
-        pass
-
+        randomViking = random.randint(0,len(self.vikingArmy) - 1)
+        randomSaxon = random.randint(0, len(self.saxonArmy) - 1)
+        confrontation = self.vikingArmy[randomViking].receiveDamage(self.saxonArmy[randomSaxon].attack())
+        if " has died in act of combat" in confrontation:
+            self.vikingArmy.remove(self.vikingArmy[randomViking])
+        return confrontation
     def showStatus(self):
-        if len(self.vikingArmy) == 0:
+        if len(self.saxonArmy) == 0:
             return "Vikings have won the war of the century!"
-        elif len(self.saxonArmy) == 0:
+        elif len(self.vikingArmy) == 0:
             return "Saxons have fought for their lives and survive another day..."
         else:
             return "Vikings and Saxons are still in the thick of battle."

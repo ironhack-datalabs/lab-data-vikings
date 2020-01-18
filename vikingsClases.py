@@ -3,7 +3,7 @@ import random
 # Soldier
 
 
-class Soldier:
+class Soldier():
     def __init__(self, health, strength):
         self.health = health
         self.strength = strength
@@ -14,6 +14,9 @@ class Soldier:
     def receiveDamage(self, damage):
         self.damage = damage
         self.health -= self.damage
+    
+    def __repr__(self):
+        return "El soldado tiene " + str(self.health) + " puntos de salud y " + str(self.strength) + " puntos de fuerza."
     
 
 # Viking
@@ -34,6 +37,9 @@ class Viking(Soldier):
     def battleCry(self):
         return "Odin Owns You All!"
 
+    def __repr__(self):
+        return "[" + self.name + "] " + str(self.health) + " HP / " + str(self.strength) + " AT"
+
 
 # Saxon
 
@@ -49,6 +55,8 @@ class Saxon(Soldier):
         else:
             return "A Saxon has died in combat"
 
+    def __repr__(self):
+        return "[Sajón] " + str(self.health) + " HP / " + str(self.strength) + " AT"
 
 # War
 
@@ -65,15 +73,20 @@ class War():
         self.saxonArmy.append(Saxon)
 
     def vikingAttack(self):
-        self.randomViking = random.choice(vikingArmy)
-        self.randomSaxon = random.choice(saxonArmy)
-        super(Saxon).receiveDamage(strength)
-        if health(Saxon) == 0:
-            self.saxonArmy.remove(Saxon)
-        pass
+        randomViking = random.randint(0,len(self.vikingArmy) - 1)
+        randomSaxon = random.randint(0, len(self.saxonArmy) - 1)
+        confrontation = self.saxonArmy[randomSaxon].receiveDamage(self.vikingArmy[randomViking].attack())
+        if confrontation == "A Saxon has died in combat":
+            self.saxonArmy.remove(self.saxonArmy[randomSaxon])
+        return confrontation
     
     def saxonAttack(self):
-        pass
+        randomViking = random.randint(0,len(self.vikingArmy) - 1)
+        randomSaxon = random.randint(0, len(self.saxonArmy) - 1)
+        confrontation = self.vikingArmy[randomViking].receiveDamage(self.saxonArmy[randomSaxon].attack())
+        if " has died in act of combat" in confrontation:
+            self.vikingArmy.remove(self.vikingArmy[randomViking])
+        return confrontation
 
     def showStatus(self):
         if len(self.saxonArmy) == 0:
@@ -83,5 +96,13 @@ class War():
         else:
             return "Vikings and Saxons are still in the thick of battle."
     
-
+    def __repr__(self):
+        e = "\n ---- BATTLE IS COMING ---- \n"
+        for i in self.vikingArmy:
+            e += str(i) + "\n"
+        for i in self.saxonArmy:
+            e += str(i) +"\n"
         
+        return e 
+
+         

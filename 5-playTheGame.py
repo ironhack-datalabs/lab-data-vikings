@@ -41,19 +41,17 @@ def generateArmies(g,size):
     for i in range(0,size):
         g.addViking(Viking(random.choice(nombres_vikingos),random.randint(1,51)+50,random.randint(1,11)+25))
         g.addSaxon(Saxon(random.randint(1,51)+50,random.randint(1,11)+25))
-    if (random.randint(0,9) >= 5):
-        #g.removeViking()
+    if (random.randint(0,9) == 5):
         g.vikingArmy[0].becomeBerserker()
-        #g.addViking(Viking('^^BERSERKER^^',250,80))
 
 
 def battle(g,turno):
     while len(g.saxonArmy) != 0 and len(g.vikingArmy) != 0:
         if(turno=="s"):
-            g.saxonAttackCow()
+            g.saxonAttackStrong()
             turno="v"
         else:
-            g.vikingAttackCow()
+            g.vikingAttackStrong()
             turno="s"
         print(g)
         #print(g.showStatus())

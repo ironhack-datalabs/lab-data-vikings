@@ -83,13 +83,12 @@ class War:
         print('\n')
         for j in self.saxonArmy:
             s += str(j) + '\n'
-        #s= str(len(self.vikingArmy))+" vikings and "+str(len(self.saxonArmy))+" saxons"
         return s
 
     def addViking(self,viking):
         self.vikingArmy.append(viking)
 
-    def removeViking(self):
+    def removeFirstViking(self):
         self.vikingArmy.remove(self.vikingArmy[0])
 
     def addSaxon(self,saxon):
@@ -134,16 +133,11 @@ class War:
             print("---")
         
     def vikingAttackCow(self):
-        viki = 0
-        for i in range(len(self.vikingArmy)):
-            if self.vikingArmy[viki].strength < self.vikingArmy[i].strength:
-                viki = i
+        viki = random.randint(0,len(self.vikingArmy)-1)
         saxo = 0
         for i in range(len(self.saxonArmy)):
             if self.saxonArmy[saxo].health > self.saxonArmy[i].health:
                 saxo = i
-        #viki = random.randint(0,len(self.vikingArmy)-1)
-        #saxo = random.randint(0,len(self.saxonArmy)-1)
         resultado = self.saxonArmy[saxo].receiveDamage(self.vikingArmy[viki].attack())
         if(resultado[-1] == "t"):
             self.saxonArmy.remove(self.saxonArmy[saxo])
@@ -151,6 +145,33 @@ class War:
         return resultado
 
     def saxonAttackCow(self):
+        saxo = random.randint(0,len(self.saxonArmy)-1)
+        viki = 0
+        for i in range(len(self.vikingArmy)):
+            if self.vikingArmy[viki].health > self.vikingArmy[i].health:
+                viki = i
+        resultado = self.vikingArmy[viki].receiveDamage(self.saxonArmy[saxo].attack())
+        if(resultado[-1] == "t"):
+            self.vikingArmy.remove(self.vikingArmy[viki])
+            self.saxonArmy[saxo].kills += 1
+        return resultado
+
+    def vikingAttackStrong(self):
+        viki = 0
+        for i in range(len(self.vikingArmy)):
+            if self.vikingArmy[viki].strength < self.vikingArmy[i].strength:
+                viki = i
+        saxo = 0
+        for i in range(len(self.saxonArmy)):
+            if self.saxonArmy[saxo].strength < self.saxonArmy[i].strength:
+                saxo = i
+        resultado = self.saxonArmy[saxo].receiveDamage(self.vikingArmy[viki].attack())
+        if(resultado[-1] == "t"):
+            self.saxonArmy.remove(self.saxonArmy[saxo])
+            self.vikingArmy[viki].kills += 1
+        return resultado
+
+    def saxonAttackStrong(self):
         saxo = 0
         for i in range(len(self.saxonArmy)):
             if self.saxonArmy[saxo].strength < self.saxonArmy[i].strength:
@@ -159,8 +180,6 @@ class War:
         for i in range(len(self.vikingArmy)):
             if self.vikingArmy[viki].health > self.vikingArmy[i].health:
                 viki = i
-        #viki = random.randint(0,len(self.vikingArmy)-1)
-        #saxo = random.randint(0,len(self.saxonArmy)-1)
         resultado = self.vikingArmy[viki].receiveDamage(self.saxonArmy[saxo].attack())
         if(resultado[-1] == "t"):
             self.vikingArmy.remove(self.vikingArmy[viki])

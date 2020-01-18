@@ -60,7 +60,7 @@ class War:
         strength_saxon = saxon_attack.attack()
         viking_atacado = random.choice(self.vikingArmy)
         viking_atacado2 = viking_atacado.receiveDamage(strength_saxon)
-        if "has died in act of combat"  in viking_atacado2 :
+        if viking_atacado.health <= 0 :
             self.vikingArmy.remove(viking_atacado)
         return viking_atacado2
     def showStatus(self):

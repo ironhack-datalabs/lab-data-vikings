@@ -80,7 +80,7 @@ class War:
         s = "\n-----Standing battle members:-----\n"
         for i in self.vikingArmy:
             s += str(i) + '\n'
-        print('\n')
+        print('\n\n')
         for j in self.saxonArmy:
             s += str(j) + '\n'
         return s
@@ -185,3 +185,85 @@ class War:
             self.vikingArmy.remove(self.vikingArmy[viki])
             self.saxonArmy[saxo].kills += 1
         return resultado
+
+
+
+class Teacher(Viking):
+    def __init__(self, name, health, strength):
+        super().__init__(name, health, strength)
+    
+    def receiveDamage(self, damage):
+        return super().receiveDamage(damage)
+    
+    def becomeBerserker(self):
+        super().becomeBerserker()
+
+class Alumn(Viking):
+    def __init__(self, name, health, strength):
+        super().__init__(name, health, strength)
+    
+    def receiveDamage(self, damage):
+        return super().receiveDamage(damage)
+
+
+class BootcampWar:
+    def __init__(self):
+        self.teachersArmy = []
+        self.alumnsArmy = []
+
+    def __repr__(self):
+        s = "\n-----Standing battle members:-----\n"
+        for i in self.teachersArmy:
+            s += str(i) + '\n'
+        print('\n\n')
+        for j in self.alumnsArmy:
+            s += str(j) + '\n'
+        return s
+
+    def addTeacher(self,teacher):
+        self.teachersArmy.append(teacher)
+
+    def addAlumn(self,alumn):
+        self.alumnsArmy.append(alumn)
+
+    def alumnAttack(self):
+        alu = random.randint(0,len(self.alumnsArmy)-1)
+        tea = random.randint(0,len(self.teachersArmy)-1)
+        resultado = self.teachersArmy[tea].receiveDamage(self.alumnsArmy[alu].attack())
+        if(resultado[-1] == "t"):
+            self.teachersArmy.remove(self.teachersArmy[tea])
+            self.alumnsArmy[alu].kills += 1
+        return resultado
+
+    def teacherAttack(self):
+        alu = random.randint(0,len(self.alumnsArmy)-1)
+        tea = random.randint(0,len(self.teachersArmy)-1)
+        resultado = self.alumnsArmy[alu].receiveDamage(self.teachersArmy[tea].attack())
+        if(resultado[-1] == "t"):
+            self.alumnsArmy.remove(self.alumnsArmy[alu])
+            self.teachersArmy[tea].kills += 1
+        return resultado
+
+    def showStatus(self):
+        if(len(self.teachersArmy) == 0):
+            return "Alumns have won the war of the century!"
+        elif(len(self.alumnsArmy) == 0):
+            return "Teachers suspended the whole class"
+        else:
+            return "Alumns and Teachers are still in the thick of battle."
+
+    def heroesOfWar(self):
+        if(len(self.alumnsArmy) != 0):
+            remain = self.alumnsArmy[0]
+            for i in self.alumnsArmy:
+                if remain.kills < i.kills:
+                    remain = i
+            print("ALL HAIL "+str.upper(remain.name)+"!\n")
+        elif(len(self.teachersArmy) != 0):
+            remain = self.teachersArmy[0]
+            for i in self.teachersArmy:
+                if remain.kills < i.kills:
+                    remain = i
+            print(str.upper(remain.name)+" has been a pain in the ass for us\n")
+        else:
+            print("---")

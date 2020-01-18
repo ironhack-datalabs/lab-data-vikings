@@ -20,14 +20,23 @@ class Viking(Soldier):
     def __init__(self, name, health, strength):
         super().__init__(health, strength)
         self.name = name
+        self.isBerserker = False
 
     #attack se hereda automaticamente
 
     def __repr__(self):
-        s = "["+self.name+"] "+"HP: "+str(self.health)+" AT: "+str(self.strength)
+        s = "["
+        if self.isBerserker:
+            s += '⚔ '
+        s += self.name+"] "+"HP: "+str(self.health)+" AT: "+str(self.strength)
         if self.kills > 0:
-            s += " Kills: "+str(self.kills)
+            s += " ☠ "+str(self.kills)
         return s
+    
+    def becomeBerserker(self):
+        self.isBerserker = True
+        self.health = 250
+        self.strength = 80
 
     def receiveDamage(self, damage):
         super().receiveDamage(damage)
@@ -50,7 +59,7 @@ class Saxon(Soldier):
     def __repr__(self):
         s = "[a saxon] "+"HP: "+str(self.health)+" AT: "+str(self.strength)
         if self.kills > 0:
-            s += " Kills: "+str(self.kills)
+            s += " ☠ "+str(self.kills)
         return s
 
     def receiveDamage(self, damage):
@@ -79,6 +88,9 @@ class War:
 
     def addViking(self,viking):
         self.vikingArmy.append(viking)
+
+    def removeViking(self):
+        self.vikingArmy.remove(self.vikingArmy[0])
 
     def addSaxon(self,saxon):
         self.saxonArmy.append(saxon)
@@ -117,7 +129,40 @@ class War:
             for i in self.vikingArmy:
                 if remain.kills < i.kills:
                     remain = i
-            print("This battle will always be remembered as THE BATTLE OF "+str.upper(remain.name)+"\n")
+            print("This battle will always be remembered as THE BATTLE OF MIGHTY "+str.upper(remain.name)+"\n")
         else:
             print("---")
         
+    def vikingAttackCow(self):
+        viki = 0
+        for i in range(len(self.vikingArmy)):
+            if self.vikingArmy[viki].strength < self.vikingArmy[i].strength:
+                viki = i
+        saxo = 0
+        for i in range(len(self.saxonArmy)):
+            if self.saxonArmy[saxo].health > self.saxonArmy[i].health:
+                saxo = i
+        #viki = random.randint(0,len(self.vikingArmy)-1)
+        #saxo = random.randint(0,len(self.saxonArmy)-1)
+        resultado = self.saxonArmy[saxo].receiveDamage(self.vikingArmy[viki].attack())
+        if(resultado[-1] == "t"):
+            self.saxonArmy.remove(self.saxonArmy[saxo])
+            self.vikingArmy[viki].kills += 1
+        return resultado
+
+    def saxonAttackCow(self):
+        saxo = 0
+        for i in range(len(self.saxonArmy)):
+            if self.saxonArmy[saxo].strength < self.saxonArmy[i].strength:
+                saxo = i
+        viki = 0
+        for i in range(len(self.vikingArmy)):
+            if self.vikingArmy[viki].health > self.vikingArmy[i].health:
+                viki = i
+        #viki = random.randint(0,len(self.vikingArmy)-1)
+        #saxo = random.randint(0,len(self.saxonArmy)-1)
+        resultado = self.vikingArmy[viki].receiveDamage(self.saxonArmy[saxo].attack())
+        if(resultado[-1] == "t"):
+            self.vikingArmy.remove(self.vikingArmy[viki])
+            self.saxonArmy[saxo].kills += 1
+        return resultado

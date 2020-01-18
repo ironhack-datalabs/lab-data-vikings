@@ -47,14 +47,15 @@ def generateArmies(g,size):
 
 def battle(g,turno):
     while len(g.saxonArmy) != 0 and len(g.vikingArmy) != 0:
+        print('\n')
         if(turno=="s"):
-            g.saxonAttackStrong()
+            print(g.saxonAttackStrong())
             turno="v"
         else:
-            g.vikingAttackStrong()
+            print(g.vikingAttackStrong())
             turno="s"
         print(g)
-        #print(g.showStatus())
+        print(g.showStatus())
         try:
             input("Press enter to continue")
         except SyntaxError:
@@ -73,7 +74,7 @@ else:
     print("Vikings will start the war")
 
 battle(guerra,emp)
-print(guerra.showStatus())
+#print(guerra.showStatus())
 guerra.heroesOfWar()
 
 

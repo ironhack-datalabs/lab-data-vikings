@@ -48,18 +48,20 @@ def generateArmies(g):
 
 def battle(g,turno):
     while len(g.teachersArmy) != 0 and len(g.alumnsArmy) != 0:
-        if(turno=="t"):
-            g.teacherAttack()
-            turno="a"
-        else:
-            g.alumnAttack()
-            turno="t"
-        print(g)
-        #print(g.showStatus())
         try:
             input("Press enter to continue")
         except SyntaxError:
             pass
+        print('\n')
+        if(turno=="t"):
+            print(g.teacherAttack())
+            turno="a"
+        else:
+            print(g.alumnAttack())
+            turno="t"
+        print(g)
+        print(g.showStatus())
+
 
 guerra = BootcampWar()
 
@@ -73,7 +75,7 @@ else:
     print("Teachers will start the war")
 
 battle(guerra,emp)
-print(guerra.showStatus())
+#print(guerra.showStatus())
 guerra.heroesOfWar()
 
 

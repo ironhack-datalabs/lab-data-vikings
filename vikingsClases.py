@@ -80,7 +80,7 @@ class War:
         s = "\n-----Standing battle members:-----\n"
         for i in self.vikingArmy:
             s += str(i) + '\n'
-        print('\n\n')
+        s += '\n'
         for j in self.saxonArmy:
             s += str(j) + '\n'
         return s
@@ -122,7 +122,7 @@ class War:
     
     def heroesOfWar(self):
         if(len(self.saxonArmy) != 0):
-            print("This battle will be long remembered...")
+            print("This battle will be soon forgotten...")
         elif(len(self.vikingArmy) != 0):
             remain = self.vikingArmy[0]
             for i in self.vikingArmy:
@@ -215,7 +215,7 @@ class BootcampWar:
         s = "\n-----Standing battle members:-----\n"
         for i in self.teachersArmy:
             s += str(i) + '\n'
-        print('\n\n')
+        s += '\n'
         for j in self.alumnsArmy:
             s += str(j) + '\n'
         return s
@@ -246,9 +246,9 @@ class BootcampWar:
 
     def showStatus(self):
         if(len(self.teachersArmy) == 0):
-            return "Alumns have won the war of the century!"
+            return "Alumns have won the limited-edition Axe"
         elif(len(self.alumnsArmy) == 0):
-            return "Teachers suspended the whole class"
+            return "Teachers won. BOYANDER must be proud"
         else:
             return "Alumns and Teachers are still in the thick of battle."
 

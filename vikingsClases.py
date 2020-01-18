@@ -44,7 +44,7 @@ class Saxon:
         super().__init__(health, strength)
 
     def attack(self):
-        super().strength()
+        pass
         # War
 
 

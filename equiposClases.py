@@ -39,8 +39,8 @@ class Saxon(Soldier):
         else:
             return "Saxon {} Saxon has died in combat" .format(str(self.name))
 
-
 # War
+
 
 class War:
     def __init__(self):

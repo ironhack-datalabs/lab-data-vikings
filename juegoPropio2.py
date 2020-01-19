@@ -4,6 +4,7 @@ from equiposClases import War
 from equiposClases import Viking
 from equiposClases import Saxon
 from inspect import signature
+import sys
 # Lista con todos los nombres
 nombres = ["Miguel_Ceinos", "Eduardo_Vill", "Laura", "Patricia", "Xabier", "Cristina", "Santi", "Irene", "Ricardo_Alf", "Fernando", "Guille_Diego", "María", "Jose_Vidal",
            "Eduardo_Garo", "Marlena", "Guille_Mart", "Alex_Vidal", "Iván", "Sergio", "Elisa", "Amanda", "Héctor", "Jose_Pérez", "Fabián", "Marc", "Clara", "Blanca", "Fran", "Felipe"]
@@ -61,7 +62,10 @@ def eligeInicio():
 
 
 def pause():
-    pause = input('Presiona ENTER para seguir ')
+    pause = input('Presiona ENTER para seguir o z + enter para salir ')
+    if pause == "z":
+        sys.exit()
+    print("----------------------------------------")
 
 
 def empiezaVik():
@@ -72,6 +76,7 @@ def empiezaVik():
         saxAttack()
         print("Quedan {} sajones y {} vikingos".format(
             len(saxonTeam), len(vikingTeam)))
+        print("----------------------------------------")
         if len(vikingTeam) == 0 or len(saxonTeam) == 0:
             break
         pause()
@@ -85,6 +90,7 @@ def empiezaSax():
         vikAttack()
         print("Quedan {} sajones y {} vikingos".format(
             len(saxonTeam), len(vikingTeam)))
+        print("----------------------------------------")
         if len(vikingTeam) == 0 or len(saxonTeam) == 0:
             break
         pause()
@@ -104,6 +110,7 @@ def muestraGana():
 # Creandoequipos convierte las listas con los equipos (aleatorias) en vikingos y sajones con datos.
 creandoEquipos()
 # mostramos los equipos por la terminal.
+print("He creado aletoriamente dos equipos \n")
 print("Vikingos")
 for i in vikingTeam:
     print(i.__dict__)
@@ -114,8 +121,10 @@ for i in saxonTeam:
 eligeInicio()
 
 if empieza == "v":
+    print("Ok, empiezan los Vikingos")
     empiezaVik()
 else:
+    print("Ok, empiezan los Sajones")
     empiezaSax()
 
 muestraGana()

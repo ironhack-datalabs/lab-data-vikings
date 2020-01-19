@@ -62,14 +62,14 @@ class War:
         self.vikingArmy = []
         self.saxonArmy = []
 
-    def addViking(self, viking):
+    def addViking(self, Viking):
         print('Se va a crear un Viking: ', len(self.vikingArmy))
-        self.vikingArmy.append(viking)
+        self.vikingArmy.append(Viking)
         print('Creado un Viking: ', len(self.vikingArmy))
 
-    def addSaxon(self, saxon):
+    def addSaxon(self, Saxon):
         print('Se va a crear un Saxon: ', len(self.saxonArmy))
-        self.saxonArmy.append(saxon)
+        self.saxonArmy.append(Saxon)
         print('Creado un Saxon: ', len(self.saxonArmy))
 
     def vikingAttack(self):
@@ -78,7 +78,7 @@ class War:
         randomViking = random.choice(self.saxonArmy)
         randomSaxon.receiveDamage(randomViking.strength)
 
-        if randomSaxon.health < 0:
+        if randomSaxon.health <= 0:
             print('Se va a eliminar saxon', randomSaxon.health)
             print('Longitud saxonArmy antes: ', len(self.saxonArmy))
             self.saxonArmy.remove(randomSaxon)
@@ -103,5 +103,5 @@ class War:
             return "Vikings have won the war of the century!"
         elif len(self.vikingArmy) == 0:
             return "Saxons have fought for their lives and survive another day..."
-        elif len(self.saxonArmy) == len(self.vikingArmy) and len(self.saxonArmy) == 1:
+        else:
             return "Vikings and Saxons are still in the thick of battle."

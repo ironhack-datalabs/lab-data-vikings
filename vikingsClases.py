@@ -14,7 +14,6 @@ class Soldier(object):
     def receiveDamage(self, damage):
         self.health -= damage
 
-    pass
 
 # Viking
 
@@ -51,7 +50,6 @@ class Saxon(Soldier):
             return 'A Saxon has died in combat'
         else:
             return 'A Saxon has received ' + str(damage) + ' points of damage'
-        pass
 
 # War
 
@@ -73,12 +71,22 @@ class War:
     def vikingAttack(self):
         saxon = random.choice(self.saxonArmy)
         viking = random.choice(self.vikingArmy)
-        return saxon.receiveDamage(viking.attack())
+        saxon.receiveDamage(viking.attack())
+        if saxon.health <= 0:
+            self.saxonArmy.remove(saxon)
+            return 'A Saxon has died in combat'
+        else:
+            return 'A Saxon has received ' + str(viking.attack()) + ' points of damage'
 
     def saxonAttack(self):
         saxon = random.choice(self.saxonArmy)
         viking = random.choice(self.vikingArmy)
-        return viking.receiveDamage(saxon.attack())
+        viking.receiveDamage(saxon.attack())
+        if viking.health <= 0:
+            self.vikingArmy.remove(viking)
+            return str(viking.name) + ' has died in act of combat'
+        else:
+            return str(viking.name) + ' has received ' + str(saxon.attack()) + ' points of damage'
 
     def showStatus(self):
         if self.saxonArmy == []:
@@ -86,5 +94,5 @@ class War:
         elif self.vikingArmy == []:
             return 'Saxons have fought for their lives and survive another day...'
         else:
-            return 'Vikings and Saxons are still in the thick of battle'
+            return 'Vikings and Saxons are still in the thick of battle.'
         pass

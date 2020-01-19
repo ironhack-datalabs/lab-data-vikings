@@ -82,17 +82,16 @@ class Saxon(Soldier):
     def __init__ (self,health,strength):
         super().__init__(health,strength)
     
-    def recieveDamage (self, damage):
+    def recieveDamage (self,damage):
         new_health = self.health - damage
-        mensaje = ""
+        string = ""
         if new_health > 0:
             self.health = new_health
-            mensaje = "A Saxon has received "+str(damage)+" points of damage"
+            string = "A Saxon has received "+str(damage)+" points of damage"
         else:
             self.health = 0
-            mensaje = "A Saxon has died in act of combact"
-        
-        return mensaje
+            string = "A Saxon has died in act of combact"
+        return string
 
 
 # War

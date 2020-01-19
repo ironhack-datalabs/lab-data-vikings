@@ -38,8 +38,9 @@ class Soldier:
 class Viking(Soldier):
     
     #should receive 3 arguments (name, health & strength)
-    def __init__ (self,name):
+    def __init__ (self,name,health,strength):
         self.name = name
+        super().__init__(health,strength)
     
     #Attack() method should be inherited from Soldier, no need to reimplement it.
     
@@ -56,10 +57,10 @@ class Viking(Soldier):
         mensaje = ""
         if new_health > 0:
             self.health = new_health
-            mensaje = str(self.name)+"has received"+str(damage)+"points of damage"
+            mensaje = str(self.name)+" has received "+str(damage)+" points of damage"
         else:
             self.health = 0
-            mensaje = str(self.name)+"has died in act of combact"
+            mensaje = str(self.name)+" has died in act of combat"
         return mensaje
     
     def battleCry (self):
@@ -78,19 +79,19 @@ class Viking(Soldier):
 
 class Saxon(Soldier):
     
-    def __init__ (self):
-        pass
+    def __init__ (self,health,strength):
+        super().__init__(health,strength)
     
     def recieveDamage (self, damage):
-        self.damage = damage
-        new_health = self.health - self.damage
+        new_health = self.health - damage
         mensaje = ""
         if new_health > 0:
             self.health = new_health
-            mensaje = "A Saxon has received"+str(self.damage)+"points of damage"
+            mensaje = "A Saxon has received "+str(damage)+" points of damage"
         else:
             self.health = 0
             mensaje = "A Saxon has died in act of combact"
+        
         return mensaje
 
 

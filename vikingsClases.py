@@ -27,7 +27,7 @@ class Viking(Soldier):
         return super().attack()
 
     def receiveDamage(self, damage):
-        super().attack()
+        self.health -= damage
         return f"{self.name} has received {damage} points of damage" \
             if int(self.health) > 0 else f"{self.name} has died in act of combat"
 
@@ -48,7 +48,7 @@ class Saxon(Soldier):
         return super().attack()
 
     def receiveDamage(self, damage):
-        super().attack()
+        self.health -= damage
         return f"A Saxon has received {damage} points of damage" if self.health > 0 else f"A Saxon has died in combat"
 
     def __repr__(self):
@@ -73,6 +73,9 @@ class War:
     def vikingAttack(self):
         viking = self.vikingArmy[self.randomSoldier(self.vikingArmy)]
         saxon = self.saxonArmy[self.randomSoldier(self.saxonArmy)]
+        print(viking)
+        print("vs")
+        print(f"{saxon}\n")
         resultado = saxon.receiveDamage(viking.strength)
         if saxon.health <= 0:
             self.saxonArmy.remove(saxon)
@@ -81,6 +84,9 @@ class War:
     def saxonAttack(self):
         viking = self.vikingArmy[self.randomSoldier(self.vikingArmy)]
         saxon = self.saxonArmy[self.randomSoldier(self.saxonArmy)]
+        print(saxon)
+        print("vs")
+        print(f"{viking}\n")
         resultado = viking.receiveDamage(saxon.strength)
         if viking.health <= 0:
             self.vikingArmy.remove(viking)
@@ -94,13 +100,3 @@ class War:
     def __repr__(self):
         return f"vikingArmy: {len(self.vikingArmy)} \nsaxonArmy: {len(self.saxonArmy)}"
 
-"""
-#Creo que esto es una Batalla muy simple
-
-war = War()
-war.addSaxon(Saxon(5, 5))
-war.addViking(Viking("Messi", 6, 6))
-print(war.saxonAttack())
-print(war)
-print(war.showStatus())
-"""

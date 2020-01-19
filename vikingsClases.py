@@ -53,13 +53,11 @@ class Viking(Soldier):
     #if the Viking is still alive, it should return "NAME has received DAMAGE points of damage"
     #if the Viking dies, it should return "NAME has died in act of combat"
         
-        new_health = self.health - damage
+        self.health -= damage
         mensaje = ""
-        if new_health > 0:
-            self.health = new_health
+        if self.health > 0:
             mensaje = str(self.name)+" has received "+str(damage)+" points of damage"
         else:
-            self.health = 0
             mensaje = str(self.name)+" has died in act of combat"
         return mensaje
     
@@ -82,15 +80,13 @@ class Saxon(Soldier):
     def __init__ (self,health,strength):
         super().__init__(health,strength)
     
-    def recieveDamage (self,damage):
-        new_health = self.health - damage
+    def receiveDamage (self, damage):
+        self.health -= damage
         string = ""
-        if new_health > 0:
-            self.health = new_health
+        if self.health > 0:
             string = "A Saxon has received "+str(damage)+" points of damage"
         else:
-            self.health = 0
-            string = "A Saxon has died in act of combact"
+            string = "A Saxon has died in combat"
         return string
 
 
@@ -142,13 +138,12 @@ class War:
         #should return result of calling receiveDamage() of a Saxon with the strength of a Viking
 
         
-        vik = random.choice(self.vikingArmy)
+        vik = random.randint(0,len(self.vikingArmy) - 1)
+        sax = random.randint(0,len(self.saxonArmy) - 1)
         
-        sax = random.choice(self.saxonArmy)
+        vik_attack = self.saxonArmy[sax].receiveDamage(self.vikingArmy[vik].attack())
         
-        vik_attack = sax.recieveDamage(vik.attack())
-        
-        self.saxonArmy = [n for n in self.saxonArmy if self.health > 0]
+        self.saxonArmy = [n for n in self.saxonArmy if n.health > 0]
         
         return vik_attack
     
@@ -163,13 +158,15 @@ class War:
         #should remove dead vikings from the army
         #should return result of calling receiveDamage() of a Viking with the strength of a Saxon
         
-        vik = random.choice(self.vikingArmy)
+        #vik = random.choice(self.vikingArmy)
+        #sax = random.choice(self.saxonArmy)
         
-        sax = random.choice(self.saxonArmy)
+        vik = random.randint(0,len(self.vikingArmy) - 1)
+        sax = random.randint(0,len(self.saxonArmy) - 1)
         
-        sax_attack = vik.recieveDamage(sax.attack())
+        sax_attack = self.vikingArmy[vik].receiveDamage(self.saxonArmy[sax].attack())
         
-        self.vikingArmy = [n for n in self.vikingArmy if self.health > 0]
+        self.vikingArmy = [n for n in self.vikingArmy if n.health > 0]
         
         return sax_attack
     

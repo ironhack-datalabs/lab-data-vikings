@@ -1,5 +1,6 @@
 import vikingsClases as v
 import random as rd
+import time as t
 import pyglet
 
 def randomNumber():
@@ -22,7 +23,14 @@ for i in range(0, numberSaxon):
     war.addSaxon(v.Saxon(randomNumber(), randomNumber()))
 
 contador = 1
+for i in range(1, 4):
+    t.sleep(0.75)
+    print(f"{i}............")
+t.sleep(0.75)
+print("Gooooo")
+
 while 1:
+    t.sleep(1)
     print(f"{contador}- War")
     print("-----")
     contador += 1
@@ -33,15 +41,26 @@ while 1:
         print(war.vikingAttack())
     print("-----\n")
     if len(war.saxonArmy) == 0 or len(war.vikingArmy) == 0:
+        print(f"{war.showStatus()}")
         print("WAR IS OVER!!!")
-        print(f"{war.showStatus()}\n")
+        print("LET'S CELEBRATE")
         break
-    print(f"{war.showStatus()}\n")
-ag_file = "giphy.gif"
-animation = pyglet.resource.animation(ag_file)
-sprite = pyglet.sprite.Sprite(animation)
-win = pyglet.window.Window(width=sprite.width, height=sprite.height)
 
+t.sleep(2)
+animation = pyglet.image.load_animation("vikingRave.gif")
+animSprite = pyglet.sprite.Sprite(animation)
+w = animSprite.width
+h = animSprite.height
+window = pyglet.window.Window(width=w, height=h, fullscreen=True1)
+window.set_visible(True)
+r, g, b, alpha = 0.5, 0.5, 0.8, 0.5
+pyglet.gl.glClearColor(r, g, b, alpha)
+music = pyglet.resource.media("celebrate.mp3", streaming=False)
+music.play()
 
+@window.event
+def on_draw():
+    window.clear()
+    animSprite.draw()
 
-
+pyglet.app.run()

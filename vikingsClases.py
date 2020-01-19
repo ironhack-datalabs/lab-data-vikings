@@ -9,7 +9,7 @@ class Soldier:
     
     def receiveDamage(self, damage):
         self.damage = damage
-        health = health - damage
+        self.health = self.health - damage
     
 # Viking
 class Viking(Soldier):
@@ -19,11 +19,12 @@ class Viking(Soldier):
         self.name = name
 
     def attack(self):
-        super().__init__() 
+        super().attack()
+        return self.strength
 
     def receiveDamage(self, damage):
-        super().__init__(self, damage) #Incorporar aquí la función de restar al health el damage.
         self.damage = damage
+        self.health = self.health - damage
     
         if self.health > 0:
             return (str(self.name)) + " has received " + (str(self.damage)) + " points of damage"
@@ -37,13 +38,16 @@ class Viking(Soldier):
 class Saxon(Soldier):
 
     def __init__(self, health, strength):
-        super().__init__() #Tiene las mismas características que un soldado
+        super().__init__(health, strength) #Tiene las mismas características que un soldado
+        #hay que incluir la parte de damage de soldier aquí
     
     def attack(self):
-        super().__init__() # Llamar esta función desde la de soldier
-        
+        super().attack()
+        return self.strength
+
     def receiveDamage(self, damage):
-        # Llamar la parte de Viking de esta misma función
+        self.damage = damage
+        self.health = self.health - damage
         
         if self.health > 0:
             return "A Saxon has received " + (str(self.damage)) + " points of damage"

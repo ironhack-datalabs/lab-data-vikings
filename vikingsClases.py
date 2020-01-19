@@ -34,9 +34,9 @@ class Viking:
         self.damage = damage
     
         if self.health > 0:
-            return self.name, "has received ", self.damage, "points of damage"
-        elif self.health <= 0: 
-            return self.name, "has died in act of combat"
+            return (str(self.name) + "has received " + (str(self.damage) + "points of damage"
+        elif self.health =< 0: 
+            return (str(self.name) + "has died in act of combat"
     
     def battleCry(self):
         return "Odin Owns You All!"

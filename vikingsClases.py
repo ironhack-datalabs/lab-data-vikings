@@ -20,7 +20,6 @@ class Soldier:
         self.health -= damage
 
 
-
 # Viking
 
 
@@ -42,33 +41,28 @@ class Viking(Soldier):
 
         return ("%s has received %s points of damage" % (self.name, damage) if self.health > 0 else "%s has died in act of combat" % (self.name))
 
-    
-
     def battleCry(self):
 
         return "Odin Owns You All!"
 
-   
+
 # Saxon
 
 class Saxon(Soldier):
 
-    def __init__(self,health,strength):
+    def __init__(self, health, strength):
 
         super().__init__(health, strength)
-        
 
     def attack(self):
-        
-        return self.strength
-    
 
-    def receiveDamage(self,damage):
-        
+        return self.strength
+
+    def receiveDamage(self, damage):
+
         super().receiveDamage(damage)
 
-        return ("A Saxon has received %s points of damage" %(damage) if self.health > 0 else "A Saxon has died in combat")
-
+        return ("A Saxon has received %s points of damage" % (damage) if self.health > 0 else "A Saxon has died in combat")
 
 
 # War
@@ -77,54 +71,49 @@ class Saxon(Soldier):
 class War:
 
     def __init__(self):
-        
+
         self.vikingArmy = []
 
         self.saxonArmy = []
+
+    def addViking(self, Viking):
+
+        self.vikingArmy.append(Viking)
         
+        print(self.vikingArmy)
 
-    def addViking(self,*Viking):
+    def addSaxon(self, Saxon):
 
-        self.vikingArmy.append(list(Viking))
-        
-
-    def addSaxon(self,*Saxon):
-
-        self.saxonArmy.append(list(Saxon))
-    
-    
+        self.saxonArmy.append(Saxon)
 
     def saxonAttack(self):
 
-        Vikingo = self.vikingArmy[random.randint(0,len(self.vikingArmy)-1)]
-        
-        Sajón = self.saxonArmy[random.randint(0,len(self.saxonArmy)-1)]
-        
-        Battle = Vikingo[0].receiveDamage(Sajón[0].attack())
-        
-        if Vikingo[0].health <= 0:
-            
-            position = self.vikingArmy.index(Vikingo)
-            
-            del self.vikingArmy[position]
-            
+        Vikingo = self.vikingArmy[random.randint(0, len(self.vikingArmy)-1)]
+
+        Sajon = self.saxonArmy[random.randint(0, len(self.saxonArmy)-1)]
+
+        Battle = Vikingo.receiveDamage(Sajon.attack())
+
+        if Vikingo.health <= 0:
+
+            self.vikingArmy.remove(Vikingo)
+
         return Battle
-    
-    
+
     def vikingAttack(self):
 
-        Vikingo = self.vikingArmy[random.randint(0,len(self.vikingArmy)-1)]
-        
-        Sajón = self.saxonArmy[random.randint(0,len(self.saxonArmy)-1)]
-        
-        Battle = Sajón[0].receiveDamage(Vikingo[0].attack())
-        
-        if Sajón[0].health <= 0:
+        Vikingo = self.vikingArmy[random.randint(0, len(self.vikingArmy)-1)]
+
+        Sajon = self.saxonArmy[random.randint(0, len(self.saxonArmy)-1)]
+
+        Battle = Sajon.receiveDamage(Vikingo.attack())
+
+        if Sajon.health <= 0:
+
+            self.saxonArmy.remove(Sajon)
+
             
-            position = self.saxonArmy.index(Sajón)
-            
-            del self.saxonArmy[position]
-            
+
         return Battle
 
     def showStatus(self):
@@ -139,26 +128,26 @@ class War:
 
         else:
             return "Vikings and Saxons are still in the thick of battle."
-        
 
 
 def Viking_generator():
 
-    name_viking = "".join([chr(random.randint(97,122)) for e in range(5)])
+    name_viking = "".join([chr(random.randint(97, 122)) for e in range(5)])
 
-    health_viking = random.randint(0,900)
+    health_viking = random.randint(0, 900)
 
-    strength_viking = random.randint(0,450)
+    strength_viking = random.randint(0, 450)
 
     Viking_generated = Viking(name_viking, health_viking, strength_viking)
 
     return Viking_generated
 
+
 def Saxon_generator():
 
-    health_saxon = random.randint(0,900)
+    health_saxon = random.randint(0, 900)
 
-    strength_saxon = random.randint(0,450)
+    strength_saxon = random.randint(0, 450)
 
     Saxon_generated = Saxon(health_saxon, strength_saxon)
 
@@ -176,22 +165,17 @@ def battle(size):
     for e in range(size):
 
         IronWar.addSaxon(Saxon_generator())
-        
+
     while IronWar.vikingArmy and IronWar.saxonArmy:
 
         print(IronWar.saxonAttack())
-        
+
         if IronWar.vikingArmy and IronWar.saxonArmy:
 
             print(IronWar.vikingAttack())
-        
+
     print(IronWar.showStatus())
-        
-    
+
 
 print(battle(6))
-
-
-
-
 

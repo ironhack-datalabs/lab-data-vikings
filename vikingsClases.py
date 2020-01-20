@@ -71,16 +71,20 @@ class War:
         self.saxonArmy.append(Saxon)
 
     def vikingAttack(self):
-        return {"receiveDamage(Saxon)": int(random.random()+100), "strength(Viking)": int(random.random()*100)}
-        for i in vikingArmy:
-            if receiveDamage(Saxon) <= 0:
-                self.vikingArmy.pop(i)
 
+        cuernos = random.randint(0, len(self.vikingArmy)-1)
+        espada = random.randint(0, len(self.saxonArmy)-1)
+
+        cuernos_attack = self.saxonArmy[espada].receiveDamage(
+            self.vikingArmy[cuernos].attack())
+        for cuernos_attack in saxonArmy:
+            if self.health(saxon) <= 0:
+                self.saxonArmy.remove(espada)
+        return cuernos_attack
+
+
+'''
     def saxonAttack(self):
-        return{"receiveDamage(Viking)": int(random.random()+100), "strength(Saxon)": int(random.random()*100)}
-        for i in saxonArmy():
-            if receiveDamage(viking) <= 0:
-                self.saxonArmy.pop(i)
 
     def showStatus(self):
         if vikingArmy == []:
@@ -89,3 +93,9 @@ class War:
             return "Saxons have fought for their lives and survive another day..."
         else:
             return "Vikings and Saxons are still in the thick of battle."
+
+ # return {"receiveDamage(Saxon)": int(random.random()+100), "strength(Viking)": int(random.random()*100)}
+        # for i in vikingArmy:
+         #   if receiveDamage(Saxon) <= 0:
+          #      self.vikingArmy.pop(i)
+'''

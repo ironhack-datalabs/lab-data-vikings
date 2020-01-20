@@ -71,9 +71,11 @@ class War:
         self.Viking=Viking
         append.self.vikingArmy(n+1)
 
-    def addSaxon():
+    def addSaxon(self, Saxon):
+        append.self.saxonArmy(n+1)
 
-    def vikingAttack():
+    def vikingAttack(saxonArmy):
+        random.sample.self.saxonArmy
 
     def saxonAttack():
 

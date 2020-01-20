@@ -79,8 +79,6 @@ class War:
     def addViking(self, Viking):
 
         self.vikingArmy.append(Viking)
-        
-        print(self.vikingArmy)
 
     def addSaxon(self, Saxon):
 

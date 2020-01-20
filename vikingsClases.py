@@ -72,7 +72,10 @@ class War:
         vikingAttacker = random.choice(self.vikingArmy)
         dmg = vikingAttacker.attack()
         saxonVictim = random.choice(self.saxonArmy)
-        saxonVictim.receiveDamage(dmg)
+        result = saxonVictim.receiveDamage(dmg)
+        if saxonVictim.health <= 0:
+            self.saxonArmy.remove(saxonVictim)
+        return result
         
         #victimIndex = random.randint(0,sum(len(self.vikingArmy),-1))
         #result = self.saxonArmy[victimIndex].receiveDamage(dmg)
@@ -81,7 +84,17 @@ class War:
         #return result
         pass
     def saxonAttack(self):
+        saxonAttacker = random.choice(self.saxonArmy)
+        dmg = saxonAttacker.attack()
+        vikingVictim = random.choice(self.vikingArmy)
+        result = vikingVictim.receiveDamage(dmg)
+        if vikingVictim.health <= 0:
+            self.vikingArmy.remove(vikingVictim)
+        return result
+
         pass
     def showStatus(self):
-        pass
-    pass
+        if self.saxonArmy == []: return "Vikings have won the war of the century!"
+        elif self.vikingArmy == []: return "Saxons have fought for their lives and survive another day..."
+        return "Vikings and Saxons are still in the thick of battle."
+    

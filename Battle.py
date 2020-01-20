@@ -1,5 +1,5 @@
-import vikings as vk #por ej. para importar las clases que tengo en TestSoldier
-
+import vikingsClases as vk 
+"""
 - Generar una batalla
 
 - Variable (war) con los atributos
@@ -7,4 +7,6 @@ import vikings as vk #por ej. para importar las clases que tengo en TestSoldier
 - Funcion que cree sajones, funcion que cree vikingos
 
 - Una vez tengo la lista de los ejercitos empiezo a pelear hasta que no queden mas vikingos o sajones (con un while)
+"""
+
 

@@ -21,8 +21,8 @@ class Soldier():
 class Viking(Soldier):
     def __init__(self, name, health, strength):
         self.name = name
-        self.health = health
-        self.strength = strength
+        super().__init__(health, strength) #Por corrección de Felipe cojo
+                                            #los args del padre que se repiten
 
     def receiveDamage(self, damage):
         self.health -= damage
@@ -57,11 +57,11 @@ class War:
         self.vikingArmy = []
         self.saxonArmy = []
 
-    def addViking(self, Viking):
-        self.vikingArmy.append(Viking)
+    def addViking(self, viking):
+        self.vikingArmy.append(viking)
 
-    def addSaxon(self, Saxon):
-        self.saxonArmy.append(Saxon)
+    def addSaxon(self, saxon):
+        self.saxonArmy.append(saxon)
 
     def vikingAttack(self):
         vikingo = random.choice(self.vikingArmy)

@@ -3,8 +3,8 @@ import random
 
 warInstance = vk.War()
 vikingsNames = ["a","b","c"]
-nVikings = int(input("Cuantos vikingos hay?"))
-nSaxons = int(input("Cuantos sajones hay?"))
+nVikings = int(input("How many vikings do you want in your army? "))
+nSaxons = int(input("How many saxons do you want in your army? "))
 for i in range(nVikings):
     name = random.choice(vikingsNames)
     health = random.uniform(30,50)
@@ -23,9 +23,6 @@ while warInstance.showStatus() == "Vikings and Saxons are still in the thick of 
     print(warInstance.saxonAttack())
     status = warInstance.showStatus()
     print(status)
-  #  if(status != "Vikings and Saxons are still in the thick of battle."):
-   #     print(status)
-    #    break
 
 
 """

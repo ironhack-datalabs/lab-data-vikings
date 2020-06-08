@@ -36,8 +36,8 @@ class Viking(Soldier):
 
 class Saxon(Soldier):
     def receiveDamage(self, damage):
-        self.health -= damage
-    # super().receiveDamage()
+        #self.health -= damage
+        super().receiveDamage(damage)  # como hereda de Soldier...
         if self.health > 0:
             return "A Saxon has received {} points of damage" .format(str(damage))
         else:

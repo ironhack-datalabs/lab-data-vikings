@@ -4,9 +4,10 @@ import random
 
 
 class Soldier:
-    def __init__(self, health, strength):
+    def __init__(self, name, health, strength):
         self.health = health
         self.strength = strength
+        self.name = name
 
     def attack(self):
         return self.strength
@@ -18,16 +19,12 @@ class Soldier:
 
 
 class Viking(Soldier):
-    def __init__(self, name, health, strength):
-        super().__init__(health, strength)
-        self.name = name
-
     def receiveDamage(self, damage):
         self.health -= damage
         if self.health > 0:
-            return "{} has received {} points of damage" .format(self.name, str(damage))
+            return "Viking {} has received {} points of damage" .format(self.name, str(damage))
         else:
-            return "{} has died in act of combat" .format(self.name)
+            return "Viking {} has died in act of combat" .format(self.name)
 
     def battleCry(self):
         return "Odin Owns You All!"
@@ -36,15 +33,14 @@ class Viking(Soldier):
 
 class Saxon(Soldier):
     def receiveDamage(self, damage):
-        #self.health -= damage
-        super().receiveDamage(damage)  # como hereda de Soldier...
+        self.health -= damage
         if self.health > 0:
-            return "A Saxon has received {} points of damage" .format(str(damage))
+            return "Saxon {} has received {} points of damage" .format(self.name, str(damage))
         else:
-            return "A Saxon has died in combat"
-
+            return "Saxon {} Saxon has died in combat" .format(str(self.name))
 
 # War
+
 
 class War:
     def __init__(self):
